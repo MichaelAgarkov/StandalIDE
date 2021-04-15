@@ -32,8 +32,9 @@ type
     procedure printToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure printDocument1_PrintPage(sender: Object; e: Drawing.Printing.PrintPageEventArgs);
     procedure closeToolStripMenuItem_Click(sender: Object; e: EventArgs);
+    procedure editorSettingsToolStripMenuItem_Click(sender: Object; e: EventArgs);
   {$region FormDesigner}
-  private 
+  private
     {$resource Unit1.Form1.resources}
     menuStrip1: MenuStrip;
     statusStrip1: StatusStrip;
@@ -65,6 +66,7 @@ type
     printDocument1: System.Drawing.Printing.PrintDocument;
     printPreviewDialog1: PrintPreviewDialog;
     closeToolStripMenuItem: ToolStripMenuItem;
+    editorSettingsToolStripMenuItem: ToolStripMenuItem;
     richTextBox1: RichTextBox;
     {$include Unit1.Form1.inc}
   {$endregion FormDesigner}
@@ -123,6 +125,7 @@ begin
   if(DefThemeSetting = 'Night') then begin
     lightThemeToolStripMenuItem.Checked := false;
     darkThemeToolStripMenuItem.Checked := false;
+    nightThemeToolStripMenuItem.Checked := true;
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
@@ -374,6 +377,7 @@ end;
 procedure Form1.fullscreenModeToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
   if(fullscreenModeToolStripMenuItem.Checked = true) then begin
+    WindowState := System.Windows.Forms.FormWindowState.Normal;
     FormBorderStyle := System.Windows.Forms.FormBorderStyle.None;
     WindowState := System.Windows.Forms.FormWindowState.Maximized;
   end else begin
@@ -395,6 +399,12 @@ end;
 procedure Form1.closeToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
   halt;
+end;
+
+procedure Form1.editorSettingsToolStripMenuItem_Click(sender: Object; e: EventArgs);
+begin
+  WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg', 'True'.Split);
+  Form(new SettingsForm).show;
 end;
 
 end.

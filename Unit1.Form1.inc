@@ -13,6 +13,7 @@ procedure InitializeComponent;
         self.settingsToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.alwaysOnTopToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.fullscreenModeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.closeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.themesToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.lightThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.darkThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
@@ -31,7 +32,7 @@ procedure InitializeComponent;
         self.fontDialog1 := new System.Windows.Forms.FontDialog();
         self.printDocument1 := new System.Drawing.Printing.PrintDocument();
         self.printPreviewDialog1 := new System.Windows.Forms.PrintPreviewDialog();
-        self.closeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.editorSettingsToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.menuStrip1.SuspendLayout();
         self.statusStrip1.SuspendLayout();
         self.contextMenuStrip1.SuspendLayout();
@@ -82,7 +83,7 @@ procedure InitializeComponent;
         self.printToolStripMenuItem.Name := 'printToolStripMenuItem';
         self.printToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.P)));
         self.printToolStripMenuItem.Size := new System.Drawing.Size(189, 22);
-        self.printToolStripMenuItem.Text := 'Print';
+        self.printToolStripMenuItem.Text := 'Print (Beta)';
         self.printToolStripMenuItem.Click += printToolStripMenuItem_Click;
         // 
         // toolStripSeparator1
@@ -128,6 +129,14 @@ procedure InitializeComponent;
         self.fullscreenModeToolStripMenuItem.Size := new System.Drawing.Size(189, 22);
         self.fullscreenModeToolStripMenuItem.Text := 'Fullscreen Mode';
         self.fullscreenModeToolStripMenuItem.Click += fullscreenModeToolStripMenuItem_Click;
+        // 
+        // closeToolStripMenuItem
+        // 
+        self.closeToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('closeToolStripMenuItem.Image')));
+        self.closeToolStripMenuItem.Name := 'closeToolStripMenuItem';
+        self.closeToolStripMenuItem.Size := new System.Drawing.Size(189, 22);
+        self.closeToolStripMenuItem.Text := 'Close';
+        self.closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
         // 
         // themesToolStripMenuItem
         // 
@@ -232,7 +241,6 @@ procedure InitializeComponent;
         self.richTextBox1.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(15)))), (System.Int32((System.Byte(15)))), (System.Int32((System.Byte(15)))));
         self.richTextBox1.ContextMenuStrip := self.contextMenuStrip1;
         self.richTextBox1.Dock := System.Windows.Forms.DockStyle.Fill;
-        self.richTextBox1.EnableAutoDragDrop := true;
         self.richTextBox1.Font := new System.Drawing.Font('Courier New', 14.25, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (System.Byte(204)));
         self.richTextBox1.ForeColor := System.Drawing.Color.White;
         self.richTextBox1.Location := new System.Drawing.Point(0, 24);
@@ -244,15 +252,15 @@ procedure InitializeComponent;
         // 
         // contextMenuStrip1
         // 
-        self.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[1](self.fontToolStripMenuItem1));
+        self.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[2](self.fontToolStripMenuItem1, self.editorSettingsToolStripMenuItem));
         self.contextMenuStrip1.Name := 'contextMenuStrip1';
-        self.contextMenuStrip1.Size := new System.Drawing.Size(99, 26);
+        self.contextMenuStrip1.Size := new System.Drawing.Size(153, 70);
         // 
         // fontToolStripMenuItem1
         // 
         self.fontToolStripMenuItem1.Image := (System.Drawing.Image(resources.GetObject('fontToolStripMenuItem1.Image')));
         self.fontToolStripMenuItem1.Name := 'fontToolStripMenuItem1';
-        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(98, 22);
+        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(152, 22);
         self.fontToolStripMenuItem1.Text := 'Font';
         self.fontToolStripMenuItem1.Click += fontToolStripMenuItem1_Click;
         // 
@@ -294,13 +302,13 @@ procedure InitializeComponent;
         self.printPreviewDialog1.UseAntiAlias := true;
         self.printPreviewDialog1.Visible := false;
         // 
-        // closeToolStripMenuItem
+        // editorSettingsToolStripMenuItem
         // 
-        self.closeToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('closeToolStripMenuItem.Image')));
-        self.closeToolStripMenuItem.Name := 'closeToolStripMenuItem';
-        self.closeToolStripMenuItem.Size := new System.Drawing.Size(189, 22);
-        self.closeToolStripMenuItem.Text := 'Close';
-        self.closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
+        self.editorSettingsToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('editorSettingsToolStripMenuItem.Image')));
+        self.editorSettingsToolStripMenuItem.Name := 'editorSettingsToolStripMenuItem';
+        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(152, 22);
+        self.editorSettingsToolStripMenuItem.Text := 'Editor settings';
+        self.editorSettingsToolStripMenuItem.Click += editorSettingsToolStripMenuItem_Click;
         // 
         // Form1
         // 

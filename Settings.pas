@@ -5,7 +5,7 @@ interface
 uses System, System.Drawing, System.Windows.Forms;
 
 var
-  setting1, setting2, setting3: string;
+  setting1, setting2, setting3, OpenEditorSettingsPanel: string;
 
 type
   SettingsForm = class(Form)
@@ -17,7 +17,7 @@ type
     procedure button4_Click(sender: Object; e: EventArgs);
     procedure button5_Click(sender: Object; e: EventArgs);
   {$region FormDesigner}
-  private 
+  private
     {$resource Settings.SettingsForm.resources}
     treeView1: TreeView;
     panel2: Panel;
@@ -83,6 +83,15 @@ begin
   if(setting2 = 'False') then checkBox1.Checked := false;
   if(setting3 = 'True') then checkBox2.Checked := true;
   if(setting3 = 'False') then checkBox2.Checked := false;
+  OpenEditorSettingsPanel := 'False';
+  try
+    var OpenEditorSettingsFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg', System.Text.Encoding.Default);
+    OpenEditorSettingsPanel := OpenEditorSettingsFile.ReadLine;
+    OpenEditorSettingsFile.Close;
+  except
+  end;
+  System.IO.File.Delete('OpenEditorSettings.cfg');
+  if(OpenEditorSettingsPanel = 'True') then treeView1.SelectedNode := treeView1.Nodes[1];
 end;
 
 procedure SettingsForm.treeView1_AfterSelect(sender: Object; e: TreeViewEventArgs);

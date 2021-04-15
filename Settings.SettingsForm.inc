@@ -5,28 +5,28 @@ procedure InitializeComponent;
         var treeNode11: System.Windows.Forms.TreeNode := new System.Windows.Forms.TreeNode('General');
         var treeNode12: System.Windows.Forms.TreeNode := new System.Windows.Forms.TreeNode('Editor');
         self.panel1 := new System.Windows.Forms.Panel();
-        self.treeView1 := new System.Windows.Forms.TreeView();
-        self.panel2 := new System.Windows.Forms.Panel();
-        self.button1 := new System.Windows.Forms.Button();
-        self.button2 := new System.Windows.Forms.Button();
-        self.button3 := new System.Windows.Forms.Button();
-        self.imageList1 := new System.Windows.Forms.ImageList(self.components);
-        self.pictureBox1 := new System.Windows.Forms.PictureBox();
-        self.pictureBox2 := new System.Windows.Forms.PictureBox();
-        self.panel3 := new System.Windows.Forms.Panel();
-        self.panel4 := new System.Windows.Forms.Panel();
-        self.label1 := new System.Windows.Forms.Label();
         self.label2 := new System.Windows.Forms.Label();
+        self.label1 := new System.Windows.Forms.Label();
+        self.pictureBox2 := new System.Windows.Forms.PictureBox();
+        self.pictureBox1 := new System.Windows.Forms.PictureBox();
+        self.treeView1 := new System.Windows.Forms.TreeView();
+        self.imageList1 := new System.Windows.Forms.ImageList(self.components);
+        self.panel2 := new System.Windows.Forms.Panel();
+        self.button3 := new System.Windows.Forms.Button();
+        self.button2 := new System.Windows.Forms.Button();
+        self.button1 := new System.Windows.Forms.Button();
+        self.panel3 := new System.Windows.Forms.Panel();
+        self.checkBox2 := new System.Windows.Forms.CheckBox();
+        self.checkBox1 := new System.Windows.Forms.CheckBox();
         self.button4 := new System.Windows.Forms.Button();
-        self.button5 := new System.Windows.Forms.Button();
+        self.panel4 := new System.Windows.Forms.Panel();
         self.label3 := new System.Windows.Forms.Label();
         self.DefThemeComboBox := new System.Windows.Forms.ComboBox();
-        self.checkBox1 := new System.Windows.Forms.CheckBox();
-        self.checkBox2 := new System.Windows.Forms.CheckBox();
+        self.button5 := new System.Windows.Forms.Button();
         self.panel1.SuspendLayout();
-        self.panel2.SuspendLayout();
-        (System.ComponentModel.ISupportInitialize(self.pictureBox1)).BeginInit();
         (System.ComponentModel.ISupportInitialize(self.pictureBox2)).BeginInit();
+        (System.ComponentModel.ISupportInitialize(self.pictureBox1)).BeginInit();
+        self.panel2.SuspendLayout();
         self.panel3.SuspendLayout();
         self.panel4.SuspendLayout();
         self.SuspendLayout();
@@ -44,6 +44,50 @@ procedure InitializeComponent;
         self.panel1.Name := 'panel1';
         self.panel1.Size := new System.Drawing.Size(404, 65);
         self.panel1.TabIndex := 0;
+        // 
+        // label2
+        // 
+        self.label2.BackColor := System.Drawing.Color.Transparent;
+        self.label2.ForeColor := System.Drawing.Color.White;
+        self.label2.Location := new System.Drawing.Point(143, 32);
+        self.label2.Name := 'label2';
+        self.label2.Size := new System.Drawing.Size(249, 16);
+        self.label2.TabIndex := 6;
+        self.label2.Text := 'The general settings for the program';
+        // 
+        // label1
+        // 
+        self.label1.BackColor := System.Drawing.Color.Transparent;
+        self.label1.Font := new System.Drawing.Font('Segoe UI', 9.75, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (System.Byte(204)));
+        self.label1.ForeColor := System.Drawing.Color.White;
+        self.label1.Location := new System.Drawing.Point(121, 9);
+        self.label1.Name := 'label1';
+        self.label1.Size := new System.Drawing.Size(271, 23);
+        self.label1.TabIndex := 5;
+        self.label1.Text := 'General';
+        // 
+        // pictureBox2
+        // 
+        self.pictureBox2.BackColor := System.Drawing.Color.Transparent;
+        self.pictureBox2.Image := (System.Drawing.Image(resources.GetObject('pictureBox2.Image')));
+        self.pictureBox2.Location := new System.Drawing.Point(3, 3);
+        self.pictureBox2.Name := 'pictureBox2';
+        self.pictureBox2.Size := new System.Drawing.Size(59, 59);
+        self.pictureBox2.SizeMode := System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+        self.pictureBox2.TabIndex := 4;
+        self.pictureBox2.TabStop := false;
+        self.pictureBox2.Visible := false;
+        // 
+        // pictureBox1
+        // 
+        self.pictureBox1.BackColor := System.Drawing.Color.Transparent;
+        self.pictureBox1.Image := (System.Drawing.Image(resources.GetObject('pictureBox1.Image')));
+        self.pictureBox1.Location := new System.Drawing.Point(3, 3);
+        self.pictureBox1.Name := 'pictureBox1';
+        self.pictureBox1.Size := new System.Drawing.Size(59, 59);
+        self.pictureBox1.SizeMode := System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+        self.pictureBox1.TabIndex := 3;
+        self.pictureBox1.TabStop := false;
         // 
         // treeView1
         // 
@@ -66,6 +110,13 @@ procedure InitializeComponent;
         self.treeView1.TabIndex := 1;
         self.treeView1.AfterSelect += treeView1_AfterSelect;
         // 
+        // imageList1
+        // 
+        self.imageList1.ImageStream := (System.Windows.Forms.ImageListStreamer(resources.GetObject('imageList1.ImageStream')));
+        self.imageList1.TransparentColor := System.Drawing.Color.Transparent;
+        self.imageList1.Images.SetKeyName(0, 'General');
+        self.imageList1.Images.SetKeyName(1, 'Editor');
+        // 
         // panel2
         // 
         self.panel2.BackgroundImage := (System.Drawing.Image(resources.GetObject('panel2.BackgroundImage')));
@@ -79,15 +130,15 @@ procedure InitializeComponent;
         self.panel2.Size := new System.Drawing.Size(283, 29);
         self.panel2.TabIndex := 2;
         // 
-        // button1
+        // button3
         // 
-        self.button1.Location := new System.Drawing.Point(205, 3);
-        self.button1.Name := 'button1';
-        self.button1.Size := new System.Drawing.Size(75, 23);
-        self.button1.TabIndex := 0;
-        self.button1.Text := 'OK';
-        self.button1.UseVisualStyleBackColor := true;
-        self.button1.Click += button1_Click;
+        self.button3.Location := new System.Drawing.Point(6, 3);
+        self.button3.Name := 'button3';
+        self.button3.Size := new System.Drawing.Size(75, 23);
+        self.button3.TabIndex := 2;
+        self.button3.Text := 'Cancel';
+        self.button3.UseVisualStyleBackColor := true;
+        self.button3.Click += button3_Click;
         // 
         // button2
         // 
@@ -99,45 +150,15 @@ procedure InitializeComponent;
         self.button2.UseVisualStyleBackColor := true;
         self.button2.Click += button2_Click;
         // 
-        // button3
+        // button1
         // 
-        self.button3.Location := new System.Drawing.Point(6, 3);
-        self.button3.Name := 'button3';
-        self.button3.Size := new System.Drawing.Size(75, 23);
-        self.button3.TabIndex := 2;
-        self.button3.Text := 'Cancel';
-        self.button3.UseVisualStyleBackColor := true;
-        self.button3.Click += button3_Click;
-        // 
-        // imageList1
-        // 
-        self.imageList1.ImageStream := (System.Windows.Forms.ImageListStreamer(resources.GetObject('imageList1.ImageStream')));
-        self.imageList1.TransparentColor := System.Drawing.Color.Transparent;
-        self.imageList1.Images.SetKeyName(0, 'General');
-        self.imageList1.Images.SetKeyName(1, 'Editor');
-        // 
-        // pictureBox1
-        // 
-        self.pictureBox1.BackColor := System.Drawing.Color.Transparent;
-        self.pictureBox1.Image := (System.Drawing.Image(resources.GetObject('pictureBox1.Image')));
-        self.pictureBox1.Location := new System.Drawing.Point(3, 3);
-        self.pictureBox1.Name := 'pictureBox1';
-        self.pictureBox1.Size := new System.Drawing.Size(59, 59);
-        self.pictureBox1.SizeMode := System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-        self.pictureBox1.TabIndex := 3;
-        self.pictureBox1.TabStop := false;
-        // 
-        // pictureBox2
-        // 
-        self.pictureBox2.BackColor := System.Drawing.Color.Transparent;
-        self.pictureBox2.Image := (System.Drawing.Image(resources.GetObject('pictureBox2.Image')));
-        self.pictureBox2.Location := new System.Drawing.Point(3, 3);
-        self.pictureBox2.Name := 'pictureBox2';
-        self.pictureBox2.Size := new System.Drawing.Size(59, 59);
-        self.pictureBox2.SizeMode := System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-        self.pictureBox2.TabIndex := 4;
-        self.pictureBox2.TabStop := false;
-        self.pictureBox2.Visible := false;
+        self.button1.Location := new System.Drawing.Point(205, 3);
+        self.button1.Name := 'button1';
+        self.button1.Size := new System.Drawing.Size(75, 23);
+        self.button1.TabIndex := 0;
+        self.button1.Text := 'OK';
+        self.button1.UseVisualStyleBackColor := true;
+        self.button1.Click += button1_Click;
         // 
         // panel3
         // 
@@ -150,38 +171,23 @@ procedure InitializeComponent;
         self.panel3.Size := new System.Drawing.Size(283, 217);
         self.panel3.TabIndex := 3;
         // 
-        // panel4
+        // checkBox2
         // 
-        self.panel4.Controls.Add(self.label3);
-        self.panel4.Controls.Add(self.DefThemeComboBox);
-        self.panel4.Controls.Add(self.button5);
-        self.panel4.Dock := System.Windows.Forms.DockStyle.Fill;
-        self.panel4.Location := new System.Drawing.Point(121, 65);
-        self.panel4.Name := 'panel4';
-        self.panel4.Size := new System.Drawing.Size(283, 217);
-        self.panel4.TabIndex := 4;
-        self.panel4.Visible := false;
+        self.checkBox2.Location := new System.Drawing.Point(6, 36);
+        self.checkBox2.Name := 'checkBox2';
+        self.checkBox2.Size := new System.Drawing.Size(265, 24);
+        self.checkBox2.TabIndex := 2;
+        self.checkBox2.Text := 'Fullscreen at start';
+        self.checkBox2.UseVisualStyleBackColor := true;
         // 
-        // label1
+        // checkBox1
         // 
-        self.label1.BackColor := System.Drawing.Color.Transparent;
-        self.label1.Font := new System.Drawing.Font('Segoe UI', 9.75, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (System.Byte(204)));
-        self.label1.ForeColor := System.Drawing.Color.White;
-        self.label1.Location := new System.Drawing.Point(121, 9);
-        self.label1.Name := 'label1';
-        self.label1.Size := new System.Drawing.Size(271, 23);
-        self.label1.TabIndex := 5;
-        self.label1.Text := 'General';
-        // 
-        // label2
-        // 
-        self.label2.BackColor := System.Drawing.Color.Transparent;
-        self.label2.ForeColor := System.Drawing.Color.White;
-        self.label2.Location := new System.Drawing.Point(143, 32);
-        self.label2.Name := 'label2';
-        self.label2.Size := new System.Drawing.Size(249, 16);
-        self.label2.TabIndex := 6;
-        self.label2.Text := 'The general settings for the program';
+        self.checkBox1.Location := new System.Drawing.Point(6, 6);
+        self.checkBox1.Name := 'checkBox1';
+        self.checkBox1.Size := new System.Drawing.Size(265, 24);
+        self.checkBox1.TabIndex := 1;
+        self.checkBox1.Text := 'Always on top at start';
+        self.checkBox1.UseVisualStyleBackColor := true;
         // 
         // button4
         // 
@@ -193,15 +199,17 @@ procedure InitializeComponent;
         self.button4.UseVisualStyleBackColor := true;
         self.button4.Click += button4_Click;
         // 
-        // button5
+        // panel4
         // 
-        self.button5.Location := new System.Drawing.Point(205, 191);
-        self.button5.Name := 'button5';
-        self.button5.Size := new System.Drawing.Size(75, 23);
-        self.button5.TabIndex := 0;
-        self.button5.Text := 'Set default';
-        self.button5.UseVisualStyleBackColor := true;
-        self.button5.Click += button5_Click;
+        self.panel4.Controls.Add(self.label3);
+        self.panel4.Controls.Add(self.DefThemeComboBox);
+        self.panel4.Controls.Add(self.button5);
+        self.panel4.Dock := System.Windows.Forms.DockStyle.Fill;
+        self.panel4.Location := new System.Drawing.Point(121, 65);
+        self.panel4.Name := 'panel4';
+        self.panel4.Size := new System.Drawing.Size(283, 217);
+        self.panel4.TabIndex := 4;
+        self.panel4.Visible := false;
         // 
         // label3
         // 
@@ -222,23 +230,15 @@ procedure InitializeComponent;
         self.DefThemeComboBox.Size := new System.Drawing.Size(183, 21);
         self.DefThemeComboBox.TabIndex := 3;
         // 
-        // checkBox1
+        // button5
         // 
-        self.checkBox1.Location := new System.Drawing.Point(6, 6);
-        self.checkBox1.Name := 'checkBox1';
-        self.checkBox1.Size := new System.Drawing.Size(265, 24);
-        self.checkBox1.TabIndex := 1;
-        self.checkBox1.Text := 'Always on top at start';
-        self.checkBox1.UseVisualStyleBackColor := true;
-        // 
-        // checkBox2
-        // 
-        self.checkBox2.Location := new System.Drawing.Point(6, 36);
-        self.checkBox2.Name := 'checkBox2';
-        self.checkBox2.Size := new System.Drawing.Size(265, 24);
-        self.checkBox2.TabIndex := 2;
-        self.checkBox2.Text := 'Fullscreen at start';
-        self.checkBox2.UseVisualStyleBackColor := true;
+        self.button5.Location := new System.Drawing.Point(205, 191);
+        self.button5.Name := 'button5';
+        self.button5.Size := new System.Drawing.Size(75, 23);
+        self.button5.TabIndex := 0;
+        self.button5.Text := 'Set default';
+        self.button5.UseVisualStyleBackColor := true;
+        self.button5.Click += button5_Click;
         // 
         // SettingsForm
         // 
@@ -256,9 +256,9 @@ procedure InitializeComponent;
         self.Text := 'StandalIDE Settings';
         self.Load += SettingsForm_Load;
         self.panel1.ResumeLayout(false);
-        self.panel2.ResumeLayout(false);
-        (System.ComponentModel.ISupportInitialize(self.pictureBox1)).EndInit();
         (System.ComponentModel.ISupportInitialize(self.pictureBox2)).EndInit();
+        (System.ComponentModel.ISupportInitialize(self.pictureBox1)).EndInit();
+        self.panel2.ResumeLayout(false);
         self.panel3.ResumeLayout(false);
         self.panel4.ResumeLayout(false);
         self.ResumeLayout(false);
