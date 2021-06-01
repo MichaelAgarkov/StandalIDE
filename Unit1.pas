@@ -21,7 +21,7 @@ type
     procedure aboutToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure saveFileDialog1_FileOk(sender: Object; e: CancelEventArgs);
     procedure openFileDialog1_FileOk(sender: Object; e: CancelEventArgs);
-    procedure richTextBox1_TextChanged(sender: Object; e: EventArgs);
+    procedure textBox1_TextChanged(sender: Object; e: EventArgs);
     procedure Form1_FormClosing(sender: Object; e: FormClosingEventArgs);
     procedure alwaysOnTopToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure nightThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
@@ -33,6 +33,7 @@ type
     procedure printDocument1_PrintPage(sender: Object; e: Drawing.Printing.PrintPageEventArgs);
     procedure closeToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure editorSettingsToolStripMenuItem_Click(sender: Object; e: EventArgs);
+    procedure timer1_Tick(sender: Object; e: EventArgs);
   {$region FormDesigner}
   private
     {$resource Unit1.Form1.resources}
@@ -66,8 +67,9 @@ type
     printDocument1: System.Drawing.Printing.PrintDocument;
     printPreviewDialog1: PrintPreviewDialog;
     closeToolStripMenuItem: ToolStripMenuItem;
+    textBox1: TextBox;
+    timer1: Timer;
     editorSettingsToolStripMenuItem: ToolStripMenuItem;
-    richTextBox1: RichTextBox;
     {$include Unit1.Form1.inc}
   {$endregion FormDesigner}
   public 
@@ -119,8 +121,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.SystemColors.Window;
-    richTextBox1.ForeColor := System.Drawing.SystemColors.WindowText;
+    textBox1.BackColor := System.Drawing.SystemColors.Window;
+    textBox1.ForeColor := System.Drawing.SystemColors.WindowText;
   end;
   if(DefThemeSetting = 'Night') then begin
     lightThemeToolStripMenuItem.Checked := false;
@@ -129,8 +131,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(255, 96, 0);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 96, 0);
   end;
   if(DefThemeSetting = 'Programming') then begin
     lightThemeToolStripMenuItem.Checked := false;
@@ -139,8 +141,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := true;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
   end;
   if(DefThemeSetting = 'Blue') then begin
     lightThemeToolStripMenuItem.Checked := false;
@@ -149,8 +151,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := true;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(5, 5, 255);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(5, 5, 255);
   end;
   if(DefThemeSetting = 'Enderman') then begin
     lightThemeToolStripMenuItem.Checked := false;
@@ -159,8 +161,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := true;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 255);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 255);
   end;
   if(AOTATSetting = 'True') then
   begin
@@ -169,13 +171,11 @@ begin
   end;
   if(FATSetting = 'True') then
   begin
-    fullscreenModeToolStripMenuItem.Checked := true;
-    FormBorderStyle := System.Windows.Forms.FormBorderStyle.None;
-    WindowState := System.Windows.Forms.FormWindowState.Maximized;
+    timer1.Enabled := true;
   end;
   try
     var OpenedTextFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[1], System.Text.Encoding.Default);
-    richTextBox1.Text := OpenedTextFile.ReadToEnd;
+    textBox1.Text := OpenedTextFile.ReadToEnd;
     OpenedTextFile.Close;
   except
   end;
@@ -189,8 +189,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.SystemColors.Window;
-    richTextBox1.ForeColor := System.Drawing.SystemColors.WindowText;
+    textBox1.BackColor := System.Drawing.SystemColors.Window;
+    textBox1.ForeColor := System.Drawing.SystemColors.WindowText;
   end
   else begin
     lightThemeToolStripMenuItem.Checked := true;
@@ -210,8 +210,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(15, 15, 15);
-    richTextBox1.ForeColor := System.Drawing.Color.White;
+    textBox1.BackColor := System.Drawing.Color.FromArgb(15, 15, 15);
+    textBox1.ForeColor := System.Drawing.Color.White;
   end
   else begin
     darkThemeToolStripMenuItem.Checked := true;
@@ -236,13 +236,13 @@ end;
 procedure Form1.fontToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
   fontDialog1.ShowDialog;
-  richTextBox1.Font := fontDialog1.Font;
+  textBox1.Font := fontDialog1.Font;
 end;
 
 procedure Form1.fontToolStripMenuItem1_Click(sender: Object; e: EventArgs);
 begin
   fontDialog1.ShowDialog;
-  richTextBox1.Font := fontDialog1.Font;
+  textBox1.Font := fontDialog1.Font;
 end;
 
 procedure Form1.aboutToolStripMenuItem_Click(sender: Object; e: EventArgs);
@@ -255,7 +255,7 @@ end;
 procedure Form1.saveFileDialog1_FileOk(sender: Object; e: CancelEventArgs);
 begin
   var f := new System.IO.StreamWriter(saveFileDialog1.FileName, false, System.Text.Encoding.Default);
-  f.Write(richTextBox1.Text);
+  f.Write(textBox1.Text);
   f.Close;
   ToolStripStatusLabel1.Text := 'Saved';
 end;
@@ -264,7 +264,7 @@ procedure Form1.openFileDialog1_FileOk(sender: Object; e: CancelEventArgs);
 begin
   try
     var ScriptToOpen := new System.IO.StreamReader(openFileDialog1.FileName, System.Text.Encoding.Default);
-    richTextBox1.Text := ScriptToOpen.ReadToEnd;
+    textBox1.Text := ScriptToOpen.ReadToEnd;
     ScriptToOpen.Close;
     toolStripStatusLabel1.Text := 'Ready';
   except
@@ -272,7 +272,7 @@ begin
   end;
 end;
 
-procedure Form1.richTextBox1_TextChanged(sender: Object; e: EventArgs);
+procedure Form1.textBox1_TextChanged(sender: Object; e: EventArgs);
 begin
   toolStripStatusLabel1.Text := 'Ready';
 end;
@@ -298,8 +298,8 @@ begin
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(255, 96, 0);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 96, 0);
   end
   else begin
     nightThemeToolStripMenuItem.Checked := true;
@@ -319,8 +319,8 @@ begin
     nightThemeToolStripMenuItem.Checked := false;
     programmingThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(5, 5, 255);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(5, 5, 255);
   end
   else begin
     blueThemeToolStripMenuItem.Checked := true;
@@ -340,8 +340,8 @@ begin
     nightThemeToolStripMenuItem.Checked := false;
     programmingThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 255);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 255);
   end
   else begin
     endermanThemeToolStripMenuItem.Checked := true;
@@ -361,8 +361,8 @@ begin
     nightThemeToolStripMenuItem.Checked := false;
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
-    richTextBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
-    richTextBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
+    textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);;
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
   end
   else begin
     programmingThemeToolStripMenuItem.Checked := true;
@@ -393,7 +393,7 @@ end;
 
 procedure Form1.printDocument1_PrintPage(sender: Object; e: Drawing.Printing.PrintPageEventArgs);
 begin
-  e.Graphics.DrawString(richTextBox1.Text, richTextBox1.Font, Brushes.Black, 45, 45);
+  e.Graphics.DrawString(textBox1.Text, textBox1.Font, Brushes.Black, 45, 45);
 end;
 
 procedure Form1.closeToolStripMenuItem_Click(sender: Object; e: EventArgs);
@@ -405,6 +405,14 @@ procedure Form1.editorSettingsToolStripMenuItem_Click(sender: Object; e: EventAr
 begin
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg', 'True'.Split);
   Form(new SettingsForm).show;
+end;
+
+procedure Form1.timer1_Tick(sender: Object; e: EventArgs);
+begin
+  timer1.Enabled := false;
+  fullscreenModeToolStripMenuItem.Checked := true;
+  FormBorderStyle := System.Windows.Forms.FormBorderStyle.None;
+  WindowState := System.Windows.Forms.FormWindowState.Maximized;
 end;
 
 end.

@@ -24,15 +24,16 @@ procedure InitializeComponent;
         self.aboutToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.statusStrip1 := new System.Windows.Forms.StatusStrip();
         self.toolStripStatusLabel1 := new System.Windows.Forms.ToolStripStatusLabel();
-        self.richTextBox1 := new System.Windows.Forms.RichTextBox();
         self.contextMenuStrip1 := new System.Windows.Forms.ContextMenuStrip(self.components);
         self.fontToolStripMenuItem1 := new System.Windows.Forms.ToolStripMenuItem();
+        self.editorSettingsToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.saveFileDialog1 := new System.Windows.Forms.SaveFileDialog();
         self.openFileDialog1 := new System.Windows.Forms.OpenFileDialog();
         self.fontDialog1 := new System.Windows.Forms.FontDialog();
         self.printDocument1 := new System.Drawing.Printing.PrintDocument();
         self.printPreviewDialog1 := new System.Windows.Forms.PrintPreviewDialog();
-        self.editorSettingsToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.textBox1 := new System.Windows.Forms.TextBox();
+        self.timer1 := new System.Windows.Forms.Timer(self.components);
         self.menuStrip1.SuspendLayout();
         self.statusStrip1.SuspendLayout();
         self.contextMenuStrip1.SuspendLayout();
@@ -234,35 +235,27 @@ procedure InitializeComponent;
         self.toolStripStatusLabel1.Size := new System.Drawing.Size(39, 17);
         self.toolStripStatusLabel1.Text := 'Ready';
         // 
-        // richTextBox1
-        // 
-        self.richTextBox1.AcceptsTab := true;
-        self.richTextBox1.AutoWordSelection := true;
-        self.richTextBox1.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(15)))), (System.Int32((System.Byte(15)))), (System.Int32((System.Byte(15)))));
-        self.richTextBox1.ContextMenuStrip := self.contextMenuStrip1;
-        self.richTextBox1.Dock := System.Windows.Forms.DockStyle.Fill;
-        self.richTextBox1.Font := new System.Drawing.Font('Courier New', 14.25, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (System.Byte(204)));
-        self.richTextBox1.ForeColor := System.Drawing.Color.White;
-        self.richTextBox1.Location := new System.Drawing.Point(0, 24);
-        self.richTextBox1.Name := 'richTextBox1';
-        self.richTextBox1.Size := new System.Drawing.Size(584, 355);
-        self.richTextBox1.TabIndex := 0;
-        self.richTextBox1.Text := '';
-        self.richTextBox1.TextChanged += richTextBox1_TextChanged;
-        // 
         // contextMenuStrip1
         // 
         self.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[2](self.fontToolStripMenuItem1, self.editorSettingsToolStripMenuItem));
         self.contextMenuStrip1.Name := 'contextMenuStrip1';
-        self.contextMenuStrip1.Size := new System.Drawing.Size(153, 70);
+        self.contextMenuStrip1.Size := new System.Drawing.Size(150, 48);
         // 
         // fontToolStripMenuItem1
         // 
         self.fontToolStripMenuItem1.Image := (System.Drawing.Image(resources.GetObject('fontToolStripMenuItem1.Image')));
         self.fontToolStripMenuItem1.Name := 'fontToolStripMenuItem1';
-        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(152, 22);
+        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(149, 22);
         self.fontToolStripMenuItem1.Text := 'Font';
         self.fontToolStripMenuItem1.Click += fontToolStripMenuItem1_Click;
+        // 
+        // editorSettingsToolStripMenuItem
+        // 
+        self.editorSettingsToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('editorSettingsToolStripMenuItem.Image')));
+        self.editorSettingsToolStripMenuItem.Name := 'editorSettingsToolStripMenuItem';
+        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(149, 22);
+        self.editorSettingsToolStripMenuItem.Text := 'Editor settings';
+        self.editorSettingsToolStripMenuItem.Click += editorSettingsToolStripMenuItem_Click;
         // 
         // saveFileDialog1
         // 
@@ -302,18 +295,33 @@ procedure InitializeComponent;
         self.printPreviewDialog1.UseAntiAlias := true;
         self.printPreviewDialog1.Visible := false;
         // 
-        // editorSettingsToolStripMenuItem
+        // textBox1
         // 
-        self.editorSettingsToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('editorSettingsToolStripMenuItem.Image')));
-        self.editorSettingsToolStripMenuItem.Name := 'editorSettingsToolStripMenuItem';
-        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(152, 22);
-        self.editorSettingsToolStripMenuItem.Text := 'Editor settings';
-        self.editorSettingsToolStripMenuItem.Click += editorSettingsToolStripMenuItem_Click;
+        self.textBox1.AcceptsReturn := true;
+        self.textBox1.AcceptsTab := true;
+        self.textBox1.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(15)))), (System.Int32((System.Byte(15)))), (System.Int32((System.Byte(15)))));
+        self.textBox1.ContextMenuStrip := self.contextMenuStrip1;
+        self.textBox1.Dock := System.Windows.Forms.DockStyle.Fill;
+        self.textBox1.Font := new System.Drawing.Font('Courier New', 14.25, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (System.Byte(204)));
+        self.textBox1.ForeColor := System.Drawing.Color.White;
+        self.textBox1.Location := new System.Drawing.Point(0, 24);
+        self.textBox1.Multiline := true;
+        self.textBox1.Name := 'textBox1';
+        self.textBox1.ScrollBars := System.Windows.Forms.ScrollBars.Both;
+        self.textBox1.Size := new System.Drawing.Size(584, 355);
+        self.textBox1.TabIndex := 3;
+        self.textBox1.WordWrap := false;
+        self.textBox1.TextChanged += textBox1_TextChanged;
+        // 
+        // timer1
+        // 
+        self.timer1.Interval := 1;
+        self.timer1.Tick += timer1_Tick;
         // 
         // Form1
         // 
         self.ClientSize := new System.Drawing.Size(584, 401);
-        self.Controls.Add(self.richTextBox1);
+        self.Controls.Add(self.textBox1);
         self.Controls.Add(self.statusStrip1);
         self.Controls.Add(self.menuStrip1);
         self.Icon := (System.Drawing.Icon(resources.GetObject('$this.Icon')));
