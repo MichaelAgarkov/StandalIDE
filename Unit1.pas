@@ -5,7 +5,7 @@ interface
 uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, Settings, About;
 
 var
-  DefThemeSetting, AOTATSetting, FATSetting: string;
+  DefThemeSetting, AOTATSetting, FATSetting, WWASSetting: string;
 
 type
   Form1 = class(Form)
@@ -34,6 +34,7 @@ type
     procedure closeToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure editorSettingsToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure timer1_Tick(sender: Object; e: EventArgs);
+    procedure wordWrapToolStripMenuItem_Click(sender: Object; e: EventArgs);
   {$region FormDesigner}
   private
     {$resource Unit1.Form1.resources}
@@ -69,6 +70,7 @@ type
     closeToolStripMenuItem: ToolStripMenuItem;
     textBox1: TextBox;
     timer1: Timer;
+    wordWrapToolStripMenuItem: ToolStripMenuItem;
     editorSettingsToolStripMenuItem: ToolStripMenuItem;
     {$include Unit1.Form1.inc}
   {$endregion FormDesigner}
@@ -114,6 +116,13 @@ begin
     FATSettingFile.Close;
   except
     FATSetting := 'False';
+  end;
+  try
+    var WWASSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings4.cfg', System.Text.Encoding.Default);
+    WWASSetting := WWASSettingFile.ReadLine;
+    WWASSettingFile.Close;
+  except
+    WWASSetting := 'False';
   end;
   if(DefThemeSetting = 'Light') then begin
     darkThemeToolStripMenuItem.Checked := false;
@@ -169,9 +178,11 @@ begin
     alwaysOnTopToolStripMenuItem.Checked := true;
     TopMost := true;
   end;
-  if(FATSetting = 'True') then
+  if(FATSetting = 'True') then timer1.Enabled := true;
+  if(WWASSetting = 'True') then
   begin
-    timer1.Enabled := true;
+    wordWrapToolStripMenuItem.Checked := true;
+    textBox1.WordWrap := true;
   end;
   try
     var OpenedTextFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[1], System.Text.Encoding.Default);
@@ -413,6 +424,11 @@ begin
   fullscreenModeToolStripMenuItem.Checked := true;
   FormBorderStyle := System.Windows.Forms.FormBorderStyle.None;
   WindowState := System.Windows.Forms.FormWindowState.Maximized;
+end;
+
+procedure Form1.wordWrapToolStripMenuItem_Click(sender: Object; e: EventArgs);
+begin
+  if(wordWrapToolStripMenuItem.Checked) then textBox1.WordWrap := true else textBox1.WordWrap := false;
 end;
 
 end.

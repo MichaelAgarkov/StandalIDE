@@ -23,6 +23,7 @@ procedure InitializeComponent;
         self.label3 := new System.Windows.Forms.Label();
         self.DefThemeComboBox := new System.Windows.Forms.ComboBox();
         self.button5 := new System.Windows.Forms.Button();
+        self.checkBox3 := new System.Windows.Forms.CheckBox();
         self.panel1.SuspendLayout();
         (System.ComponentModel.ISupportInitialize(self.pictureBox2)).BeginInit();
         (System.ComponentModel.ISupportInitialize(self.pictureBox1)).BeginInit();
@@ -162,6 +163,7 @@ procedure InitializeComponent;
         // 
         // panel3
         // 
+        self.panel3.Controls.Add(self.checkBox3);
         self.panel3.Controls.Add(self.checkBox2);
         self.panel3.Controls.Add(self.checkBox1);
         self.panel3.Controls.Add(self.button4);
@@ -239,6 +241,15 @@ procedure InitializeComponent;
         self.button5.Text := 'Set default';
         self.button5.UseVisualStyleBackColor := true;
         self.button5.Click += button5_Click;
+        // 
+        // checkBox3
+        // 
+        self.checkBox3.Location := new System.Drawing.Point(6, 66);
+        self.checkBox3.Name := 'checkBox3';
+        self.checkBox3.Size := new System.Drawing.Size(265, 24);
+        self.checkBox3.TabIndex := 3;
+        self.checkBox3.Text := 'Word wrap at start';
+        self.checkBox3.UseVisualStyleBackColor := true;
         // 
         // SettingsForm
         // 

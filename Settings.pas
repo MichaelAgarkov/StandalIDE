@@ -5,7 +5,7 @@ interface
 uses System, System.Drawing, System.Windows.Forms;
 
 var
-  setting1, setting2, setting3, OpenEditorSettingsPanel: string;
+  setting1, setting2, setting3, setting4, OpenEditorSettingsPanel: string;
 
 type
   SettingsForm = class(Form)
@@ -38,6 +38,7 @@ type
     DefThemeComboBox: ComboBox;
     checkBox1: CheckBox;
     checkBox2: CheckBox;
+    checkBox3: CheckBox;
     panel1: Panel;
     {$include Settings.SettingsForm.inc}
   {$endregion FormDesigner}
@@ -73,6 +74,13 @@ begin
   except
     checkBox2.Checked := false;
   end;
+  try
+    var Settings4File := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings4.cfg', System.Text.Encoding.Default);
+    setting4 := Settings4File.ReadLine;
+    Settings4File.Close;
+  except
+    checkBox3.Checked := false;
+  end;
   if(setting1 = 'Light') then DefThemeComboBox.SelectedItem := 'Light theme';
   if(setting1 = 'Dark') then DefThemeComboBox.SelectedItem := 'Dark theme';
   if(setting1 = 'Night') then DefThemeComboBox.SelectedItem := 'Night theme';
@@ -83,6 +91,8 @@ begin
   if(setting2 = 'False') then checkBox1.Checked := false;
   if(setting3 = 'True') then checkBox2.Checked := true;
   if(setting3 = 'False') then checkBox2.Checked := false;
+  if(setting4 = 'True') then checkBox3.Checked := true;
+  if(setting4 = 'False') then checkBox3.Checked := false;
   OpenEditorSettingsPanel := 'False';
   try
     var OpenEditorSettingsFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg', System.Text.Encoding.Default);
@@ -90,7 +100,7 @@ begin
     OpenEditorSettingsFile.Close;
   except
   end;
-  System.IO.File.Delete('OpenEditorSettings.cfg');
+  System.IO.File.Delete(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg');
   if(OpenEditorSettingsPanel = 'True') then treeView1.SelectedNode := treeView1.Nodes[1];
 end;
 
@@ -121,6 +131,7 @@ begin
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings1.cfg', DefThemeComboBox.Text.Replace(' theme', '').Split);
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings2.cfg', checkBox1.Checked.ToString.Split);
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings3.cfg', checkBox2.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings4.cfg', checkBox3.Checked.ToString.Split);
   Close;
 end;
 
@@ -129,6 +140,7 @@ begin
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings1.cfg', DefThemeComboBox.Text.Replace(' theme', '').Split);
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings2.cfg', checkBox1.Checked.ToString.Split);
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings3.cfg', checkBox2.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings4.cfg', checkBox3.Checked.ToString.Split);
 end;
 
 procedure SettingsForm.button3_Click(sender: Object; e: EventArgs);
@@ -140,6 +152,7 @@ procedure SettingsForm.button4_Click(sender: Object; e: EventArgs);
 begin
   checkBox1.Checked := false;
   checkBox2.Checked := false;
+  checkBox3.Checked := false;
 end;
 
 procedure SettingsForm.button5_Click(sender: Object; e: EventArgs);
