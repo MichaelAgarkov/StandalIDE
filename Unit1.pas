@@ -6,6 +6,7 @@ uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, Settin
 
 var
   DefThemeSetting, AOTATSetting, FATSetting, WWASSetting: string;
+  ParseTextEncoding := new RichTextBox;
 
 type
   Form1 = class(Form)
@@ -186,8 +187,9 @@ begin
   end;
   try
     var OpenedTextFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[1], System.Text.Encoding.Default);
-    textBox1.Text := OpenedTextFile.ReadToEnd;
+    ParseTextEncoding.Text := OpenedTextFile.ReadToEnd;
     OpenedTextFile.Close;
+    textBox1.Lines := ParseTextEncoding.Lines;
   except
   end;
 end;
@@ -275,8 +277,9 @@ procedure Form1.openFileDialog1_FileOk(sender: Object; e: CancelEventArgs);
 begin
   try
     var ScriptToOpen := new System.IO.StreamReader(openFileDialog1.FileName, System.Text.Encoding.Default);
-    textBox1.Text := ScriptToOpen.ReadToEnd;
+    ParseTextEncoding.Text := ScriptToOpen.ReadToEnd;
     ScriptToOpen.Close;
+    textBox1.Lines := ParseTextEncoding.Lines;
     toolStripStatusLabel1.Text := 'Ready';
   except
     toolStripStatusLabel1.Text := 'Unable to open file';

@@ -11,6 +11,7 @@ procedure InitializeComponent;
         self.fontToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.toolStripSeparator2 := new System.Windows.Forms.ToolStripSeparator();
         self.settingsToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.wordWrapToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.alwaysOnTopToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.fullscreenModeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.closeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
@@ -34,7 +35,6 @@ procedure InitializeComponent;
         self.printPreviewDialog1 := new System.Windows.Forms.PrintPreviewDialog();
         self.textBox1 := new System.Windows.Forms.TextBox();
         self.timer1 := new System.Windows.Forms.Timer(self.components);
-        self.wordWrapToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.menuStrip1.SuspendLayout();
         self.statusStrip1.SuspendLayout();
         self.contextMenuStrip1.SuspendLayout();
@@ -113,6 +113,14 @@ procedure InitializeComponent;
         self.settingsToolStripMenuItem.Size := new System.Drawing.Size(189, 22);
         self.settingsToolStripMenuItem.Text := 'Settings';
         self.settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
+        // 
+        // wordWrapToolStripMenuItem
+        // 
+        self.wordWrapToolStripMenuItem.CheckOnClick := true;
+        self.wordWrapToolStripMenuItem.Name := 'wordWrapToolStripMenuItem';
+        self.wordWrapToolStripMenuItem.Size := new System.Drawing.Size(189, 22);
+        self.wordWrapToolStripMenuItem.Text := 'Word wrap';
+        self.wordWrapToolStripMenuItem.Click += wordWrapToolStripMenuItem_Click;
         // 
         // alwaysOnTopToolStripMenuItem
         // 
@@ -268,7 +276,6 @@ procedure InitializeComponent;
         // 
         // openFileDialog1
         // 
-        self.openFileDialog1.DefaultExt := 'pas';
         self.openFileDialog1.FileName := 'Program';
         self.openFileDialog1.Filter := resources.GetString('openFileDialog1.Filter');
         self.openFileDialog1.Title := 'Open code';
@@ -318,14 +325,6 @@ procedure InitializeComponent;
         // 
         self.timer1.Interval := 1;
         self.timer1.Tick += timer1_Tick;
-        // 
-        // wordWrapToolStripMenuItem
-        // 
-        self.wordWrapToolStripMenuItem.CheckOnClick := true;
-        self.wordWrapToolStripMenuItem.Name := 'wordWrapToolStripMenuItem';
-        self.wordWrapToolStripMenuItem.Size := new System.Drawing.Size(189, 22);
-        self.wordWrapToolStripMenuItem.Text := 'Word wrap';
-        self.wordWrapToolStripMenuItem.Click += wordWrapToolStripMenuItem_Click;
         // 
         // Form1
         // 
