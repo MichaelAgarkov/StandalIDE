@@ -22,6 +22,8 @@ procedure InitializeComponent;
         self.programmingThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.blueThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.endermanThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.vaporwaveThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.waterThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.aboutToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.statusStrip1 := new System.Windows.Forms.StatusStrip();
         self.toolStripStatusLabel1 := new System.Windows.Forms.ToolStripStatusLabel();
@@ -35,8 +37,6 @@ procedure InitializeComponent;
         self.printPreviewDialog1 := new System.Windows.Forms.PrintPreviewDialog();
         self.textBox1 := new System.Windows.Forms.TextBox();
         self.timer1 := new System.Windows.Forms.Timer(self.components);
-        self.vaporwaveThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
-        self.waterThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.menuStrip1.SuspendLayout();
         self.statusStrip1.SuspendLayout();
         self.contextMenuStrip1.SuspendLayout();
@@ -219,6 +219,26 @@ procedure InitializeComponent;
         self.endermanThemeToolStripMenuItem.Text := 'Enderman theme';
         self.endermanThemeToolStripMenuItem.Click += endermanThemeToolStripMenuItem_Click;
         // 
+        // vaporwaveThemeToolStripMenuItem
+        // 
+        self.vaporwaveThemeToolStripMenuItem.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(64)))), (System.Int32((System.Byte(0)))), (System.Int32((System.Byte(64)))));
+        self.vaporwaveThemeToolStripMenuItem.CheckOnClick := true;
+        self.vaporwaveThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Lime;
+        self.vaporwaveThemeToolStripMenuItem.Name := 'vaporwaveThemeToolStripMenuItem';
+        self.vaporwaveThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.vaporwaveThemeToolStripMenuItem.Text := 'Vaporwave theme';
+        self.vaporwaveThemeToolStripMenuItem.Click += vaporwaveThemeToolStripMenuItem_Click;
+        // 
+        // waterThemeToolStripMenuItem
+        // 
+        self.waterThemeToolStripMenuItem.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(0)))), (System.Int32((System.Byte(32)))), (System.Int32((System.Byte(64)))));
+        self.waterThemeToolStripMenuItem.CheckOnClick := true;
+        self.waterThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Cyan;
+        self.waterThemeToolStripMenuItem.Name := 'waterThemeToolStripMenuItem';
+        self.waterThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.waterThemeToolStripMenuItem.Text := 'Water theme';
+        self.waterThemeToolStripMenuItem.Click += waterThemeToolStripMenuItem_Click;
+        // 
         // aboutToolStripMenuItem
         // 
         self.aboutToolStripMenuItem.ForeColor := System.Drawing.Color.White;
@@ -250,13 +270,14 @@ procedure InitializeComponent;
         // 
         self.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[2](self.fontToolStripMenuItem1, self.editorSettingsToolStripMenuItem));
         self.contextMenuStrip1.Name := 'contextMenuStrip1';
-        self.contextMenuStrip1.Size := new System.Drawing.Size(150, 48);
+        self.contextMenuStrip1.Size := new System.Drawing.Size(153, 70);
+        self.contextMenuStrip1.Opening += contextMenuStrip1_Opening;
         // 
         // fontToolStripMenuItem1
         // 
         self.fontToolStripMenuItem1.Image := (System.Drawing.Image(resources.GetObject('fontToolStripMenuItem1.Image')));
         self.fontToolStripMenuItem1.Name := 'fontToolStripMenuItem1';
-        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(149, 22);
+        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(152, 22);
         self.fontToolStripMenuItem1.Text := 'Font';
         self.fontToolStripMenuItem1.Click += fontToolStripMenuItem1_Click;
         // 
@@ -264,7 +285,7 @@ procedure InitializeComponent;
         // 
         self.editorSettingsToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('editorSettingsToolStripMenuItem.Image')));
         self.editorSettingsToolStripMenuItem.Name := 'editorSettingsToolStripMenuItem';
-        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(149, 22);
+        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(152, 22);
         self.editorSettingsToolStripMenuItem.Text := 'Editor settings';
         self.editorSettingsToolStripMenuItem.Click += editorSettingsToolStripMenuItem_Click;
         // 
@@ -327,26 +348,6 @@ procedure InitializeComponent;
         // 
         self.timer1.Interval := 1;
         self.timer1.Tick += timer1_Tick;
-        // 
-        // vaporwaveThemeToolStripMenuItem
-        // 
-        self.vaporwaveThemeToolStripMenuItem.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(64)))), (System.Int32((System.Byte(0)))), (System.Int32((System.Byte(64)))));
-        self.vaporwaveThemeToolStripMenuItem.CheckOnClick := true;
-        self.vaporwaveThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Lime;
-        self.vaporwaveThemeToolStripMenuItem.Name := 'vaporwaveThemeToolStripMenuItem';
-        self.vaporwaveThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
-        self.vaporwaveThemeToolStripMenuItem.Text := 'Vaporwave theme';
-        self.vaporwaveThemeToolStripMenuItem.Click += vaporwaveThemeToolStripMenuItem_Click;
-        // 
-        // waterThemeToolStripMenuItem
-        // 
-        self.waterThemeToolStripMenuItem.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(0)))), (System.Int32((System.Byte(32)))), (System.Int32((System.Byte(64)))));
-        self.waterThemeToolStripMenuItem.CheckOnClick := true;
-        self.waterThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Cyan;
-        self.waterThemeToolStripMenuItem.Name := 'waterThemeToolStripMenuItem';
-        self.waterThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
-        self.waterThemeToolStripMenuItem.Text := 'Water theme';
-        self.waterThemeToolStripMenuItem.Click += waterThemeToolStripMenuItem_Click;
         // 
         // Form1
         // 

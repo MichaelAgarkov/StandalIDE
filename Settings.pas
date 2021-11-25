@@ -54,28 +54,28 @@ implementation
 procedure SettingsForm.SettingsForm_Load(sender: Object; e: EventArgs);
 begin
   try
-    var Settings1File := new System.IO.StreamReader('settings1.cfg', System.Text.Encoding.Default);
+    var Settings1File := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings1.cfg', System.Text.Encoding.Default);
     setting1 := Settings1File.ReadLine;
     Settings1File.Close;
   except
     DefThemeComboBox.Text := 'Dark theme';
   end;
   try
-    var Settings2File := new System.IO.StreamReader('settings2.cfg', System.Text.Encoding.Default);
+    var Settings2File := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings2.cfg', System.Text.Encoding.Default);
     setting2 := Settings2File.ReadLine;
     Settings2File.Close;
   except
     checkBox1.Checked := false;
   end;
   try
-    var Settings3File := new System.IO.StreamReader('settings3.cfg', System.Text.Encoding.Default);
+    var Settings3File := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings3.cfg', System.Text.Encoding.Default);
     setting3 := Settings3File.ReadLine;
     Settings3File.Close;
   except
     checkBox2.Checked := false;
   end;
   try
-    var Settings4File := new System.IO.StreamReader('settings4.cfg', System.Text.Encoding.Default);
+    var Settings4File := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings4.cfg', System.Text.Encoding.Default);
     setting4 := Settings4File.ReadLine;
     Settings4File.Close;
   except
@@ -97,12 +97,12 @@ begin
   if(setting4 = 'False') then checkBox3.Checked := false;
   OpenEditorSettingsPanel := 'False';
   try
-    var OpenEditorSettingsFile := new System.IO.StreamReader('OpenEditorSettings.cfg', System.Text.Encoding.Default);
+    var OpenEditorSettingsFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'OpenEditorSettings.cfg', System.Text.Encoding.Default);
     OpenEditorSettingsPanel := OpenEditorSettingsFile.ReadLine;
     OpenEditorSettingsFile.Close;
   except
   end;
-  System.IO.File.Delete('OpenEditorSettings.cfg');
+  System.IO.File.Delete(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'OpenEditorSettings.cfg');
   if(OpenEditorSettingsPanel = 'True') then treeView1.SelectedNode := treeView1.Nodes[1];
 end;
 
@@ -130,19 +130,19 @@ end;
 
 procedure SettingsForm.button1_Click(sender: Object; e: EventArgs);
 begin
-  WriteLines('settings1.cfg', DefThemeComboBox.Text.Replace(' theme', '').Split);
-  WriteLines('settings2.cfg', checkBox1.Checked.ToString.Split);
-  WriteLines('settings3.cfg', checkBox2.Checked.ToString.Split);
-  WriteLines('settings4.cfg', checkBox3.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings1.cfg', DefThemeComboBox.Text.Replace(' theme', '').Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings2.cfg', checkBox1.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings3.cfg', checkBox2.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings4.cfg', checkBox3.Checked.ToString.Split);
   Close;
 end;
 
 procedure SettingsForm.button2_Click(sender: Object; e: EventArgs);
 begin
-  WriteLines('settings1.cfg', DefThemeComboBox.Text.Replace(' theme', '').Split);
-  WriteLines('settings2.cfg', checkBox1.Checked.ToString.Split);
-  WriteLines('settings3.cfg', checkBox2.Checked.ToString.Split);
-  WriteLines('settings4.cfg', checkBox3.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings1.cfg', DefThemeComboBox.Text.Replace(' theme', '').Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings2.cfg', checkBox1.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings3.cfg', checkBox2.Checked.ToString.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings4.cfg', checkBox3.Checked.ToString.Split);
 end;
 
 procedure SettingsForm.button3_Click(sender: Object; e: EventArgs);
