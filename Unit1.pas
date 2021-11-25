@@ -104,27 +104,27 @@ end;
 procedure Form1.Form1_Load(sender: Object; e: EventArgs);
 begin
   try
-    var DefThemeSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings1.cfg', System.Text.Encoding.Default);
+    var DefThemeSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings1.cfg', System.Text.Encoding.Default);
     DefThemeSetting := DefThemeSettingFile.ReadLine;
     DefThemeSettingFile.Close;
   except
   end;
   try
-    var AOTATSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings2.cfg', System.Text.Encoding.Default);
+    var AOTATSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings2.cfg', System.Text.Encoding.Default);
     AOTATSetting := AOTATSettingFile.ReadLine;
     AOTATSettingFile.Close;
   except
     AOTATSetting := 'False';
   end;
   try
-    var FATSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings3.cfg', System.Text.Encoding.Default);
+    var FATSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings3.cfg', System.Text.Encoding.Default);
     FATSetting := FATSettingFile.ReadLine;
     FATSettingFile.Close;
   except
     FATSetting := 'False';
   end;
   try
-    var WWASSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'settings4.cfg', System.Text.Encoding.Default);
+    var WWASSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings4.cfg', System.Text.Encoding.Default);
     WWASSetting := WWASSettingFile.ReadLine;
     WWASSettingFile.Close;
   except
@@ -480,7 +480,7 @@ end;
 
 procedure Form1.editorSettingsToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
-  WriteLines(Environment.GetCommandLineArgs[0].Replace(GetEXEFilename, '') + 'OpenEditorSettings.cfg', 'True'.Split);
+  WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg', 'True'.Split);
   Form(new SettingsForm).show;
 end;
 
