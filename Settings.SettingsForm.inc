@@ -16,6 +16,7 @@ procedure InitializeComponent;
         self.button2 := new System.Windows.Forms.Button();
         self.button1 := new System.Windows.Forms.Button();
         self.panel3 := new System.Windows.Forms.Panel();
+        self.checkBox3 := new System.Windows.Forms.CheckBox();
         self.checkBox2 := new System.Windows.Forms.CheckBox();
         self.checkBox1 := new System.Windows.Forms.CheckBox();
         self.button4 := new System.Windows.Forms.Button();
@@ -23,7 +24,6 @@ procedure InitializeComponent;
         self.label3 := new System.Windows.Forms.Label();
         self.DefThemeComboBox := new System.Windows.Forms.ComboBox();
         self.button5 := new System.Windows.Forms.Button();
-        self.checkBox3 := new System.Windows.Forms.CheckBox();
         self.panel1.SuspendLayout();
         (System.ComponentModel.ISupportInitialize(self.pictureBox2)).BeginInit();
         (System.ComponentModel.ISupportInitialize(self.pictureBox1)).BeginInit();
@@ -173,6 +173,15 @@ procedure InitializeComponent;
         self.panel3.Size := new System.Drawing.Size(283, 217);
         self.panel3.TabIndex := 3;
         // 
+        // checkBox3
+        // 
+        self.checkBox3.Location := new System.Drawing.Point(6, 66);
+        self.checkBox3.Name := 'checkBox3';
+        self.checkBox3.Size := new System.Drawing.Size(265, 24);
+        self.checkBox3.TabIndex := 3;
+        self.checkBox3.Text := 'Word wrap at start';
+        self.checkBox3.UseVisualStyleBackColor := true;
+        // 
         // checkBox2
         // 
         self.checkBox2.Location := new System.Drawing.Point(6, 36);
@@ -226,7 +235,7 @@ procedure InitializeComponent;
         // 
         self.DefThemeComboBox.DropDownStyle := System.Windows.Forms.ComboBoxStyle.DropDownList;
         self.DefThemeComboBox.FormattingEnabled := true;
-        self.DefThemeComboBox.Items.AddRange(new System.Object[6]('Light theme', 'Dark theme', 'Night theme', 'Programming theme', 'Blue theme', 'Enderman theme'));
+        self.DefThemeComboBox.Items.AddRange(new System.Object[8]('Light theme', 'Dark theme', 'Night theme', 'Programming theme', 'Blue theme', 'Enderman theme', 'Vaporwave theme', 'Water theme'));
         self.DefThemeComboBox.Location := new System.Drawing.Point(88, 6);
         self.DefThemeComboBox.Name := 'DefThemeComboBox';
         self.DefThemeComboBox.Size := new System.Drawing.Size(183, 21);
@@ -241,15 +250,6 @@ procedure InitializeComponent;
         self.button5.Text := 'Set default';
         self.button5.UseVisualStyleBackColor := true;
         self.button5.Click += button5_Click;
-        // 
-        // checkBox3
-        // 
-        self.checkBox3.Location := new System.Drawing.Point(6, 66);
-        self.checkBox3.Name := 'checkBox3';
-        self.checkBox3.Size := new System.Drawing.Size(265, 24);
-        self.checkBox3.TabIndex := 3;
-        self.checkBox3.Text := 'Word wrap at start';
-        self.checkBox3.UseVisualStyleBackColor := true;
         // 
         // SettingsForm
         // 
