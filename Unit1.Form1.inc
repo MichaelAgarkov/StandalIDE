@@ -270,14 +270,14 @@ procedure InitializeComponent;
         // 
         self.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[2](self.fontToolStripMenuItem1, self.editorSettingsToolStripMenuItem));
         self.contextMenuStrip1.Name := 'contextMenuStrip1';
-        self.contextMenuStrip1.Size := new System.Drawing.Size(153, 70);
+        self.contextMenuStrip1.Size := new System.Drawing.Size(150, 48);
         self.contextMenuStrip1.Opening += contextMenuStrip1_Opening;
         // 
         // fontToolStripMenuItem1
         // 
         self.fontToolStripMenuItem1.Image := (System.Drawing.Image(resources.GetObject('fontToolStripMenuItem1.Image')));
         self.fontToolStripMenuItem1.Name := 'fontToolStripMenuItem1';
-        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(152, 22);
+        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(149, 22);
         self.fontToolStripMenuItem1.Text := 'Font';
         self.fontToolStripMenuItem1.Click += fontToolStripMenuItem1_Click;
         // 
@@ -285,7 +285,7 @@ procedure InitializeComponent;
         // 
         self.editorSettingsToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('editorSettingsToolStripMenuItem.Image')));
         self.editorSettingsToolStripMenuItem.Name := 'editorSettingsToolStripMenuItem';
-        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(152, 22);
+        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(149, 22);
         self.editorSettingsToolStripMenuItem.Text := 'Editor settings';
         self.editorSettingsToolStripMenuItem.Click += editorSettingsToolStripMenuItem_Click;
         // 
