@@ -2,11 +2,12 @@
 
 interface
 
-uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, Settings, About;
+uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, Settings, UnsavedChanges, About;
 
 var
   DefThemeSetting, AOTATSetting, FATSetting, WWASSetting: string;
   ParseTextEncoding := new RichTextBox;
+  TextEdited: boolean = false;
 
 type
   Form1 = class(Form)
@@ -40,7 +41,7 @@ type
     procedure waterThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure contextMenuStrip1_Opening(sender: Object; e: CancelEventArgs);
   {$region FormDesigner}
-  private
+  private 
     {$resource Unit1.Form1.resources}
     menuStrip1: MenuStrip;
     statusStrip1: StatusStrip;
@@ -318,6 +319,7 @@ begin
   f.Write(textBox1.Text);
   f.Close;
   ToolStripStatusLabel1.Text := 'Saved';
+  TextEdited := false;
 end;
 
 procedure Form1.openFileDialog1_FileOk(sender: Object; e: CancelEventArgs);
@@ -328,6 +330,7 @@ begin
     ScriptToOpen.Close;
     textBox1.Lines := ParseTextEncoding.Lines;
     toolStripStatusLabel1.Text := 'Ready';
+    TextEdited := false;
   except
     toolStripStatusLabel1.Text := 'Unable to open file';
   end;
@@ -335,12 +338,16 @@ end;
 
 procedure Form1.textBox1_TextChanged(sender: Object; e: EventArgs);
 begin
+  TextEdited := true;
   toolStripStatusLabel1.Text := 'Ready';
 end;
 
 procedure Form1.Form1_FormClosing(sender: Object; e: FormClosingEventArgs);
 begin
-  
+  if(TextEdited) then begin
+    e.Cancel := true;
+    Form(new UCForm).show;
+  end;
 end;
 
 procedure Form1.alwaysOnTopToolStripMenuItem_Click(sender: Object; e: EventArgs);
