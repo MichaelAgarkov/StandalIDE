@@ -37,6 +37,7 @@ procedure InitializeComponent;
         self.printPreviewDialog1 := new System.Windows.Forms.PrintPreviewDialog();
         self.textBox1 := new System.Windows.Forms.TextBox();
         self.timer1 := new System.Windows.Forms.Timer(self.components);
+        self.evilRedThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.menuStrip1.SuspendLayout();
         self.statusStrip1.SuspendLayout();
         self.contextMenuStrip1.SuspendLayout();
@@ -120,6 +121,7 @@ procedure InitializeComponent;
         // 
         self.wordWrapToolStripMenuItem.CheckOnClick := true;
         self.wordWrapToolStripMenuItem.Name := 'wordWrapToolStripMenuItem';
+        self.wordWrapToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.W)));
         self.wordWrapToolStripMenuItem.Size := new System.Drawing.Size(197, 22);
         self.wordWrapToolStripMenuItem.Text := 'Word wrap';
         self.wordWrapToolStripMenuItem.Click += wordWrapToolStripMenuItem_Click;
@@ -152,7 +154,7 @@ procedure InitializeComponent;
         // 
         // themesToolStripMenuItem
         // 
-        self.themesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[8](self.lightThemeToolStripMenuItem, self.darkThemeToolStripMenuItem, self.nightThemeToolStripMenuItem, self.programmingThemeToolStripMenuItem, self.blueThemeToolStripMenuItem, self.endermanThemeToolStripMenuItem, self.vaporwaveThemeToolStripMenuItem, self.waterThemeToolStripMenuItem));
+        self.themesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[9](self.lightThemeToolStripMenuItem, self.darkThemeToolStripMenuItem, self.nightThemeToolStripMenuItem, self.programmingThemeToolStripMenuItem, self.blueThemeToolStripMenuItem, self.endermanThemeToolStripMenuItem, self.vaporwaveThemeToolStripMenuItem, self.waterThemeToolStripMenuItem, self.evilRedThemeToolStripMenuItem));
         self.themesToolStripMenuItem.ForeColor := System.Drawing.Color.White;
         self.themesToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('themesToolStripMenuItem.Image')));
         self.themesToolStripMenuItem.Name := 'themesToolStripMenuItem';
@@ -236,7 +238,7 @@ procedure InitializeComponent;
         self.waterThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Cyan;
         self.waterThemeToolStripMenuItem.Name := 'waterThemeToolStripMenuItem';
         self.waterThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
-        self.waterThemeToolStripMenuItem.Text := 'Water theme';
+        self.waterThemeToolStripMenuItem.Text := 'Vaporeon theme';
         self.waterThemeToolStripMenuItem.Click += waterThemeToolStripMenuItem_Click;
         // 
         // aboutToolStripMenuItem
@@ -348,6 +350,16 @@ procedure InitializeComponent;
         // 
         self.timer1.Interval := 1;
         self.timer1.Tick += timer1_Tick;
+        // 
+        // evilRedThemeToolStripMenuItem
+        // 
+        self.evilRedThemeToolStripMenuItem.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(48)))), (System.Int32((System.Byte(0)))), (System.Int32((System.Byte(0)))));
+        self.evilRedThemeToolStripMenuItem.CheckOnClick := true;
+        self.evilRedThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Red;
+        self.evilRedThemeToolStripMenuItem.Name := 'evilRedThemeToolStripMenuItem';
+        self.evilRedThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.evilRedThemeToolStripMenuItem.Text := 'Evil Red theme';
+        self.evilRedThemeToolStripMenuItem.Click += evilRedThemeToolStripMenuItem_Click;
         // 
         // Form1
         // 

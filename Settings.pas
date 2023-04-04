@@ -88,7 +88,8 @@ begin
   if(setting1 = 'Blue') then DefThemeComboBox.SelectedItem := 'Blue theme';
   if(setting1 = 'Enderman') then DefThemeComboBox.SelectedItem := 'Enderman theme';
   if(setting1 = 'Vaporwave') then DefThemeComboBox.SelectedItem := 'Vaporwave theme';
-  if(setting1 = 'Water') then DefThemeComboBox.SelectedItem := 'Water theme';
+  if(setting1 = 'Vaporeon') then DefThemeComboBox.SelectedItem := 'Vaporeon theme';
+  if(setting1 = 'Evil') then DefThemeComboBox.SelectedItem := 'Evil Red theme';
   if(setting2 = 'True') then checkBox1.Checked := true;
   if(setting2 = 'False') then checkBox1.Checked := false;
   if(setting3 = 'True') then checkBox2.Checked := true;

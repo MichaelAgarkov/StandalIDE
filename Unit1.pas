@@ -40,8 +40,9 @@ type
     procedure vaporwaveThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure waterThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure contextMenuStrip1_Opening(sender: Object; e: CancelEventArgs);
+    procedure evilRedThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
   {$region FormDesigner}
-  private 
+  private
     {$resource Unit1.Form1.resources}
     menuStrip1: MenuStrip;
     statusStrip1: StatusStrip;
@@ -78,6 +79,7 @@ type
     wordWrapToolStripMenuItem: ToolStripMenuItem;
     vaporwaveThemeToolStripMenuItem: ToolStripMenuItem;
     waterThemeToolStripMenuItem: ToolStripMenuItem;
+    evilRedThemeToolStripMenuItem: ToolStripMenuItem;
     editorSettingsToolStripMenuItem: ToolStripMenuItem;
     {$include Unit1.Form1.inc}
   {$endregion FormDesigner}
@@ -139,6 +141,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.SystemColors.Window;
     textBox1.ForeColor := System.Drawing.SystemColors.WindowText;
   end;
@@ -151,6 +154,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 96, 0);
   end;
@@ -163,6 +167,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
   end;
@@ -175,6 +180,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(5, 5, 255);
   end;
@@ -187,6 +193,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := true;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 255);
   end;
@@ -199,10 +206,11 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := true;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(64, 0, 64);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
   end;
-  if(DefThemeSetting = 'Water') then begin
+  if(DefThemeSetting = 'Vaporeon') then begin
     lightThemeToolStripMenuItem.Checked := false;
     darkThemeToolStripMenuItem.Checked := false;
     nightThemeToolStripMenuItem.Checked := false;
@@ -211,8 +219,22 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := true;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 32, 64);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 255);
+  end;
+  if(DefThemeSetting = 'Evil') then begin
+    lightThemeToolStripMenuItem.Checked := false;
+    darkThemeToolStripMenuItem.Checked := false;
+    nightThemeToolStripMenuItem.Checked := false;
+    programmingThemeToolStripMenuItem.Checked := false;
+    blueThemeToolStripMenuItem.Checked := false;
+    endermanThemeToolStripMenuItem.Checked := false;
+    vaporwaveThemeToolStripMenuItem.Checked := false;
+    waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := true;
+    textBox1.BackColor := System.Drawing.Color.FromArgb(48, 0, 0);
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 0);
   end;
   if(AOTATSetting = 'True') then
   begin
@@ -244,6 +266,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.SystemColors.Window;
     textBox1.ForeColor := System.Drawing.SystemColors.WindowText;
   end
@@ -256,6 +279,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
@@ -269,6 +293,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(15, 15, 15);
     textBox1.ForeColor := System.Drawing.Color.White;
   end
@@ -281,6 +306,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
@@ -368,6 +394,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 96, 0);
   end
@@ -380,6 +407,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
@@ -393,6 +421,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(5, 5, 255);
   end
@@ -405,6 +434,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
@@ -418,6 +448,7 @@ begin
     blueThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 255);
   end
@@ -430,6 +461,7 @@ begin
     blueThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
@@ -443,6 +475,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
   end
@@ -455,6 +488,7 @@ begin
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
@@ -514,6 +548,7 @@ begin
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(64, 0, 64);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 0);
   end
@@ -526,6 +561,7 @@ begin
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
@@ -539,6 +575,7 @@ begin
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 32, 64);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(0, 255, 255);
   end
@@ -551,12 +588,40 @@ begin
     blueThemeToolStripMenuItem.Checked := false;
     endermanThemeToolStripMenuItem.Checked := false;
     vaporwaveThemeToolStripMenuItem.Checked := false;
+    evilRedThemeToolStripMenuItem.Checked := false;
   end;
 end;
 
 procedure Form1.contextMenuStrip1_Opening(sender: Object; e: CancelEventArgs);
 begin
   
+end;
+
+procedure Form1.evilRedThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
+begin
+  if(evilRedThemeToolStripMenuItem.Checked = true) then begin
+    lightThemeToolStripMenuItem.Checked := false;
+    darkThemeToolStripMenuItem.Checked := false;
+    nightThemeToolStripMenuItem.Checked := false;
+    programmingThemeToolStripMenuItem.Checked := false;
+    blueThemeToolStripMenuItem.Checked := false;
+    endermanThemeToolStripMenuItem.Checked := false;
+    vaporwaveThemeToolStripMenuItem.Checked := false;
+    waterThemeToolStripMenuItem.Checked := false;
+    textBox1.BackColor := System.Drawing.Color.FromArgb(48, 0, 0);
+    textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 0);
+  end
+  else begin
+    evilRedThemeToolStripMenuItem.Checked := true;
+    lightThemeToolStripMenuItem.Checked := false;
+    darkThemeToolStripMenuItem.Checked := false;
+    nightThemeToolStripMenuItem.Checked := false;
+    programmingThemeToolStripMenuItem.Checked := false;
+    blueThemeToolStripMenuItem.Checked := false;
+    endermanThemeToolStripMenuItem.Checked := false;
+    vaporwaveThemeToolStripMenuItem.Checked := false;
+    waterThemeToolStripMenuItem.Checked := false;
+  end;
 end;
 
 end.
