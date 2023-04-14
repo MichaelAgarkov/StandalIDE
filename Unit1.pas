@@ -2,12 +2,13 @@
 
 interface
 
-uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, Settings, UnsavedChanges, About;
+uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, ConsoleControl, Settings, UnsavedChanges, About;
 
 var
   DefThemeSetting, AOTATSetting, FATSetting, WWASSetting: string;
   ParseTextEncoding := new RichTextBox;
   TextEdited: boolean = false;
+  ConsoleActivated: boolean = false;
 
 type
   Form1 = class(Form)
@@ -41,6 +42,8 @@ type
     procedure waterThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
     procedure contextMenuStrip1_Opening(sender: Object; e: CancelEventArgs);
     procedure evilRedThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
+    procedure toolStripSplitButton1_ButtonClick(sender: Object; e: EventArgs);
+    procedure timer2_Tick(sender: Object; e: EventArgs);
   {$region FormDesigner}
   private
     {$resource Unit1.Form1.resources}
@@ -80,6 +83,12 @@ type
     vaporwaveThemeToolStripMenuItem: ToolStripMenuItem;
     waterThemeToolStripMenuItem: ToolStripMenuItem;
     evilRedThemeToolStripMenuItem: ToolStripMenuItem;
+    toolStripSplitButton1: ToolStripSplitButton;
+    panel1: Panel;
+    tabControl1: TabControl;
+    tabPage1: TabPage;
+    consoleControl1: ConsoleControl.ConsoleControl;
+    timer2: Timer;
     editorSettingsToolStripMenuItem: ToolStripMenuItem;
     {$include Unit1.Form1.inc}
   {$endregion FormDesigner}
@@ -622,6 +631,26 @@ begin
     vaporwaveThemeToolStripMenuItem.Checked := false;
     waterThemeToolStripMenuItem.Checked := false;
   end;
+end;
+
+procedure Form1.toolStripSplitButton1_ButtonClick(sender: Object; e: EventArgs);
+begin
+  panel1.Visible := not panel1.Visible;
+  if(not ConsoleActivated) then begin
+    ConsoleActivated := true;
+    consoleControl1.StartProcess('cmd', '');
+    consoleControl1.WriteInput('', System.Drawing.Color.White, false);
+    timer2.Enabled := true;
+  end;
+end;
+
+procedure Form1.timer2_Tick(sender: Object; e: EventArgs);
+begin
+  timer2.Enabled := false;
+  consoleControl1.ClearOutput;
+  consoleControl1.Visible := true;
+  consoleControl1.WriteOutput('Terminal started.', System.Drawing.Color.Lime);
+  consoleControl1.WriteInput('', System.Drawing.Color.White, false);
 end;
 
 end.

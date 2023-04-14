@@ -24,8 +24,10 @@ procedure InitializeComponent;
         self.endermanThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.vaporwaveThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.waterThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.evilRedThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.aboutToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
         self.statusStrip1 := new System.Windows.Forms.StatusStrip();
+        self.toolStripSplitButton1 := new System.Windows.Forms.ToolStripSplitButton();
         self.toolStripStatusLabel1 := new System.Windows.Forms.ToolStripStatusLabel();
         self.contextMenuStrip1 := new System.Windows.Forms.ContextMenuStrip(self.components);
         self.fontToolStripMenuItem1 := new System.Windows.Forms.ToolStripMenuItem();
@@ -37,10 +39,17 @@ procedure InitializeComponent;
         self.printPreviewDialog1 := new System.Windows.Forms.PrintPreviewDialog();
         self.textBox1 := new System.Windows.Forms.TextBox();
         self.timer1 := new System.Windows.Forms.Timer(self.components);
-        self.evilRedThemeToolStripMenuItem := new System.Windows.Forms.ToolStripMenuItem();
+        self.panel1 := new System.Windows.Forms.Panel();
+        self.tabControl1 := new System.Windows.Forms.TabControl();
+        self.tabPage1 := new System.Windows.Forms.TabPage();
+        self.consoleControl1 := new ConsoleControl.ConsoleControl();
+        self.timer2 := new System.Windows.Forms.Timer(self.components);
         self.menuStrip1.SuspendLayout();
         self.statusStrip1.SuspendLayout();
         self.contextMenuStrip1.SuspendLayout();
+        self.panel1.SuspendLayout();
+        self.tabControl1.SuspendLayout();
+        self.tabPage1.SuspendLayout();
         self.SuspendLayout();
         // 
         // menuStrip1
@@ -241,6 +250,16 @@ procedure InitializeComponent;
         self.waterThemeToolStripMenuItem.Text := 'Vaporeon theme';
         self.waterThemeToolStripMenuItem.Click += waterThemeToolStripMenuItem_Click;
         // 
+        // evilRedThemeToolStripMenuItem
+        // 
+        self.evilRedThemeToolStripMenuItem.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(48)))), (System.Int32((System.Byte(0)))), (System.Int32((System.Byte(0)))));
+        self.evilRedThemeToolStripMenuItem.CheckOnClick := true;
+        self.evilRedThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Red;
+        self.evilRedThemeToolStripMenuItem.Name := 'evilRedThemeToolStripMenuItem';
+        self.evilRedThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.evilRedThemeToolStripMenuItem.Text := 'Evil Red theme';
+        self.evilRedThemeToolStripMenuItem.Click += evilRedThemeToolStripMenuItem_Click;
+        // 
         // aboutToolStripMenuItem
         // 
         self.aboutToolStripMenuItem.ForeColor := System.Drawing.Color.White;
@@ -254,12 +273,24 @@ procedure InitializeComponent;
         // 
         self.statusStrip1.BackgroundImage := (System.Drawing.Image(resources.GetObject('statusStrip1.BackgroundImage')));
         self.statusStrip1.BackgroundImageLayout := System.Windows.Forms.ImageLayout.Stretch;
-        self.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[1](self.toolStripStatusLabel1));
+        self.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[2](self.toolStripSplitButton1, self.toolStripStatusLabel1));
         self.statusStrip1.Location := new System.Drawing.Point(0, 379);
         self.statusStrip1.Name := 'statusStrip1';
         self.statusStrip1.Size := new System.Drawing.Size(584, 22);
         self.statusStrip1.TabIndex := 2;
         self.statusStrip1.Text := 'statusStrip1';
+        // 
+        // toolStripSplitButton1
+        // 
+        self.toolStripSplitButton1.DropDownButtonWidth := 0;
+        self.toolStripSplitButton1.ForeColor := System.Drawing.Color.White;
+        self.toolStripSplitButton1.Image := (System.Drawing.Image(resources.GetObject('toolStripSplitButton1.Image')));
+        self.toolStripSplitButton1.ImageTransparentColor := System.Drawing.Color.Magenta;
+        self.toolStripSplitButton1.Name := 'toolStripSplitButton1';
+        self.toolStripSplitButton1.Size := new System.Drawing.Size(73, 20);
+        self.toolStripSplitButton1.Text := 'Terminal';
+        self.toolStripSplitButton1.ToolTipText := 'Open the terminal';
+        self.toolStripSplitButton1.ButtonClick += toolStripSplitButton1_ButtonClick;
         // 
         // toolStripStatusLabel1
         // 
@@ -351,19 +382,62 @@ procedure InitializeComponent;
         self.timer1.Interval := 1;
         self.timer1.Tick += timer1_Tick;
         // 
-        // evilRedThemeToolStripMenuItem
+        // panel1
         // 
-        self.evilRedThemeToolStripMenuItem.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(48)))), (System.Int32((System.Byte(0)))), (System.Int32((System.Byte(0)))));
-        self.evilRedThemeToolStripMenuItem.CheckOnClick := true;
-        self.evilRedThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Red;
-        self.evilRedThemeToolStripMenuItem.Name := 'evilRedThemeToolStripMenuItem';
-        self.evilRedThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
-        self.evilRedThemeToolStripMenuItem.Text := 'Evil Red theme';
-        self.evilRedThemeToolStripMenuItem.Click += evilRedThemeToolStripMenuItem_Click;
+        self.panel1.BackColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(64)))), (System.Int32((System.Byte(64)))), (System.Int32((System.Byte(64)))));
+        self.panel1.BorderStyle := System.Windows.Forms.BorderStyle.FixedSingle;
+        self.panel1.Controls.Add(self.tabControl1);
+        self.panel1.Dock := System.Windows.Forms.DockStyle.Bottom;
+        self.panel1.Location := new System.Drawing.Point(0, 219);
+        self.panel1.Name := 'panel1';
+        self.panel1.Size := new System.Drawing.Size(584, 160);
+        self.panel1.TabIndex := 4;
+        self.panel1.Visible := false;
+        // 
+        // tabControl1
+        // 
+        self.tabControl1.Controls.Add(self.tabPage1);
+        self.tabControl1.Dock := System.Windows.Forms.DockStyle.Fill;
+        self.tabControl1.Location := new System.Drawing.Point(0, 0);
+        self.tabControl1.Name := 'tabControl1';
+        self.tabControl1.SelectedIndex := 0;
+        self.tabControl1.Size := new System.Drawing.Size(582, 158);
+        self.tabControl1.TabIndex := 0;
+        // 
+        // tabPage1
+        // 
+        self.tabPage1.Controls.Add(self.consoleControl1);
+        self.tabPage1.Location := new System.Drawing.Point(4, 22);
+        self.tabPage1.Name := 'tabPage1';
+        self.tabPage1.Padding := new System.Windows.Forms.Padding(3);
+        self.tabPage1.Size := new System.Drawing.Size(574, 132);
+        self.tabPage1.TabIndex := 0;
+        self.tabPage1.Text := 'Terminal';
+        self.tabPage1.UseVisualStyleBackColor := true;
+        // 
+        // consoleControl1
+        // 
+        self.consoleControl1.Dock := System.Windows.Forms.DockStyle.Fill;
+        self.consoleControl1.Font := new System.Drawing.Font('Consolas', 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (System.Byte(204)));
+        self.consoleControl1.ImeMode := System.Windows.Forms.ImeMode.NoControl;
+        self.consoleControl1.IsInputEnabled := true;
+        self.consoleControl1.Location := new System.Drawing.Point(3, 3);
+        self.consoleControl1.Margin := new System.Windows.Forms.Padding(4, 4, 4, 4);
+        self.consoleControl1.Name := 'consoleControl1';
+        self.consoleControl1.SendKeyboardCommandsToProcess := false;
+        self.consoleControl1.ShowDiagnostics := true;
+        self.consoleControl1.Size := new System.Drawing.Size(568, 126);
+        self.consoleControl1.TabIndex := 0;
+        self.consoleControl1.Visible := false;
+        // 
+        // timer2
+        // 
+        self.timer2.Tick += timer2_Tick;
         // 
         // Form1
         // 
         self.ClientSize := new System.Drawing.Size(584, 401);
+        self.Controls.Add(self.panel1);
         self.Controls.Add(self.textBox1);
         self.Controls.Add(self.statusStrip1);
         self.Controls.Add(self.menuStrip1);
@@ -381,6 +455,9 @@ procedure InitializeComponent;
         self.statusStrip1.ResumeLayout(false);
         self.statusStrip1.PerformLayout();
         self.contextMenuStrip1.ResumeLayout(false);
+        self.panel1.ResumeLayout(false);
+        self.tabControl1.ResumeLayout(false);
+        self.tabPage1.ResumeLayout(false);
         self.ResumeLayout(false);
         self.PerformLayout();
     end;

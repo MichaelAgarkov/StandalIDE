@@ -14,5 +14,7 @@
     <Item Type="Reference" AssemblyName="System.Data.DataSetExtensions" FullAssemblyName="System.Data.DataSetExtensions.dll" />
     <Item Type="Reference" AssemblyName="System.Xml" FullAssemblyName="System.Xml.dll" />
     <Item Type="Reference" AssemblyName="System.Xml.Linq" FullAssemblyName="System.Xml.Linq.dll" />
+    <Item Type="Reference" AssemblyName="ConsoleControlAPI" FullAssemblyName="ConsoleControlAPI.dll" />
+    <Item Type="Reference" AssemblyName="ConsoleControl" FullAssemblyName="ConsoleControl.dll" />
   </Items>
 </Project>

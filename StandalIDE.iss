@@ -1,5 +1,5 @@
 #define MyAppName "StandalIDE"
-#define MyAppVersion "4.2"
+#define MyAppVersion "5.0"
 #define MyAppPublisher "Michael Agarkov"
 #define MyAppURL "https://github.com/MichaelAgarkov"
 #define MyAppExeName "StandalIDE.exe"
@@ -34,6 +34,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "StandalIDE.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ConsoleControl.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ConsoleControlAPI.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "License.rtf"; DestDir: "{app}"; Flags: ignoreversion
 Source: "License.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Donate.bmp"; Flags: dontcopy
