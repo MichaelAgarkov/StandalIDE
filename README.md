@@ -1,5 +1,5 @@
-![Screenshot_1](https://user-images.githubusercontent.com/81249219/120391616-f7074b00-c337-11eb-819b-217ace375ee3.png)
-![Screenshot_2](https://user-images.githubusercontent.com/81249219/143449482-a1acf3d9-0b67-4f6f-a176-3d8b11bfe4cc.png)
+![Screenshot1](https://user-images.githubusercontent.com/81249219/232089257-9c4dfeec-28e5-461c-9bbd-59b8a5c2a6ff.png)
+![Screenshot2](https://user-images.githubusercontent.com/81249219/232089260-7a1e822c-20a0-44c2-9d92-a4091bea6aeb.png)
 # StandalIDE
 A **free**, **open-source** and **easy to use** IDE made on PascalABC.NET
 
