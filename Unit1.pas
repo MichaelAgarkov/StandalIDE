@@ -110,6 +110,7 @@ end;
 
 procedure Form1.Form1_FormClosed(sender: Object; e: FormClosedEventArgs);
 begin
+  consoleControl1.StopProcess;
   halt;
 end;
 
@@ -206,7 +207,7 @@ begin
     textBox1.BackColor := System.Drawing.Color.FromArgb(0, 0, 0);
     textBox1.ForeColor := System.Drawing.Color.FromArgb(255, 0, 255);
   end;
-  if(DefThemeSetting = 'Vaporwave') then begin
+  if(DefThemeSetting = 'Ralsei') then begin
     lightThemeToolStripMenuItem.Checked := false;
     darkThemeToolStripMenuItem.Checked := false;
     nightThemeToolStripMenuItem.Checked := false;
@@ -636,11 +637,12 @@ end;
 procedure Form1.toolStripSplitButton1_ButtonClick(sender: Object; e: EventArgs);
 begin
   panel1.Visible := not panel1.Visible;
-  if(not ConsoleActivated) then begin
+  if(not ConsoleActivated) then try
     ConsoleActivated := true;
     consoleControl1.StartProcess('cmd', '');
     consoleControl1.WriteInput('', System.Drawing.Color.White, false);
     timer2.Enabled := true;
+  except;
   end;
 end;
 

@@ -1,5 +1,5 @@
 #define MyAppName "StandalIDE"
-#define MyAppVersion "5.0"
+#define MyAppVersion "5.1"
 #define MyAppPublisher "Michael Agarkov"
 #define MyAppURL "https://github.com/MichaelAgarkov"
 #define MyAppExeName "StandalIDE.exe"

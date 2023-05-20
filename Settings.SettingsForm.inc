@@ -235,7 +235,7 @@ procedure InitializeComponent;
         // 
         self.DefThemeComboBox.DropDownStyle := System.Windows.Forms.ComboBoxStyle.DropDownList;
         self.DefThemeComboBox.FormattingEnabled := true;
-        self.DefThemeComboBox.Items.AddRange(new System.Object[9]('Light theme', 'Dark theme', 'Night theme', 'Programming theme', 'Blue theme', 'Enderman theme', 'Vaporwave theme', 'Vaporeon theme', 'Evil Red theme'));
+        self.DefThemeComboBox.Items.AddRange(new System.Object[9]('Light theme', 'Dark theme', 'Night theme', 'Programming theme', 'Blue theme', 'Enderman theme', 'Ralsei theme', 'Vaporeon theme', 'Evil Red theme'));
         self.DefThemeComboBox.Location := new System.Drawing.Point(88, 6);
         self.DefThemeComboBox.Name := 'DefThemeComboBox';
         self.DefThemeComboBox.Size := new System.Drawing.Size(183, 21);

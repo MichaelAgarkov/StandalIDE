@@ -237,7 +237,7 @@ procedure InitializeComponent;
         self.vaporwaveThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Lime;
         self.vaporwaveThemeToolStripMenuItem.Name := 'vaporwaveThemeToolStripMenuItem';
         self.vaporwaveThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
-        self.vaporwaveThemeToolStripMenuItem.Text := 'Vaporwave theme';
+        self.vaporwaveThemeToolStripMenuItem.Text := 'Ralsei theme';
         self.vaporwaveThemeToolStripMenuItem.Click += vaporwaveThemeToolStripMenuItem_Click;
         // 
         // waterThemeToolStripMenuItem
@@ -432,6 +432,7 @@ procedure InitializeComponent;
         // 
         // timer2
         // 
+        self.timer2.Interval := 150;
         self.timer2.Tick += timer2_Tick;
         // 
         // Form1
