@@ -53,6 +53,7 @@ implementation
 
 procedure SettingsForm.SettingsForm_Load(sender: Object; e: EventArgs);
 begin
+  // Load cuurent settings.
   try
     var Settings1File := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings1.cfg', System.Text.Encoding.Default);
     setting1 := Settings1File.ReadLine;
@@ -81,6 +82,7 @@ begin
   except
     checkBox3.Checked := false;
   end;
+  // Show current settings.
   if(setting1 = 'Light') then DefThemeComboBox.SelectedItem := 'Light theme';
   if(setting1 = 'Dark') then DefThemeComboBox.SelectedItem := 'Dark theme';
   if(setting1 = 'Night') then DefThemeComboBox.SelectedItem := 'Night theme';
@@ -96,6 +98,7 @@ begin
   if(setting3 = 'False') then checkBox2.Checked := false;
   if(setting4 = 'True') then checkBox3.Checked := true;
   if(setting4 = 'False') then checkBox3.Checked := false;
+  // If this form was opened through "Editor settings" then it will switch to the "Editor" tab.
   OpenEditorSettingsPanel := 'False';
   try
     var OpenEditorSettingsFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg', System.Text.Encoding.Default);

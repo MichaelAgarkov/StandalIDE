@@ -432,7 +432,7 @@ procedure InitializeComponent;
         // 
         // timer2
         // 
-        self.timer2.Interval := 150;
+        self.timer2.Interval := 200;
         self.timer2.Tick += timer2_Tick;
         // 
         // Form1

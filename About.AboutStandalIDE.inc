@@ -5,10 +5,13 @@ procedure InitializeComponent;
         self.tabControl1 := new System.Windows.Forms.TabControl();
         self.tabPage1 := new System.Windows.Forms.TabPage();
         self.richTextBox1 := new System.Windows.Forms.RichTextBox();
+        self.tabPage2 := new System.Windows.Forms.TabPage();
+        self.richTextBox2 := new System.Windows.Forms.RichTextBox();
         self.linkLabel1 := new System.Windows.Forms.LinkLabel();
         (System.ComponentModel.ISupportInitialize(self.pictureBox1)).BeginInit();
         self.tabControl1.SuspendLayout();
         self.tabPage1.SuspendLayout();
+        self.tabPage2.SuspendLayout();
         self.SuspendLayout();
         // 
         // pictureBox1
@@ -25,6 +28,7 @@ procedure InitializeComponent;
         // tabControl1
         // 
         self.tabControl1.Controls.Add(self.tabPage1);
+        self.tabControl1.Controls.Add(self.tabPage2);
         self.tabControl1.Location := new System.Drawing.Point(12, 85);
         self.tabControl1.Name := 'tabControl1';
         self.tabControl1.SelectedIndex := 0;
@@ -52,6 +56,27 @@ procedure InitializeComponent;
         self.richTextBox1.TabIndex := 0;
         self.richTextBox1.Text := resources.GetString('richTextBox1.Text');
         // 
+        // tabPage2
+        // 
+        self.tabPage2.Controls.Add(self.richTextBox2);
+        self.tabPage2.Location := new System.Drawing.Point(4, 22);
+        self.tabPage2.Name := 'tabPage2';
+        self.tabPage2.Padding := new System.Windows.Forms.Padding(3);
+        self.tabPage2.Size := new System.Drawing.Size(252, 118);
+        self.tabPage2.TabIndex := 1;
+        self.tabPage2.Text := 'Information';
+        self.tabPage2.UseVisualStyleBackColor := true;
+        // 
+        // richTextBox2
+        // 
+        self.richTextBox2.Dock := System.Windows.Forms.DockStyle.Fill;
+        self.richTextBox2.Location := new System.Drawing.Point(3, 3);
+        self.richTextBox2.Name := 'richTextBox2';
+        self.richTextBox2.ReadOnly := true;
+        self.richTextBox2.Size := new System.Drawing.Size(246, 112);
+        self.richTextBox2.TabIndex := 1;
+        self.richTextBox2.Text := resources.GetString('richTextBox2.Text');
+        // 
         // linkLabel1
         // 
         self.linkLabel1.BackColor := System.Drawing.Color.Transparent;
@@ -64,7 +89,7 @@ procedure InitializeComponent;
         self.linkLabel1.Size := new System.Drawing.Size(190, 70);
         self.linkLabel1.TabIndex := 2;
         self.linkLabel1.TabStop := true;
-        self.linkLabel1.Text := 'StandalIDE'#13#10'Version 5.1'#13#10#13#10'By Michael Agarkov';
+        self.linkLabel1.Text := 'StandalIDE'#13#10'Version 6.0'#13#10#13#10'By Michael Agarkov';
         self.linkLabel1.UseCompatibleTextRendering := true;
         self.linkLabel1.LinkClicked += linkLabel1_LinkClicked;
         // 
@@ -87,5 +112,6 @@ procedure InitializeComponent;
         (System.ComponentModel.ISupportInitialize(self.pictureBox1)).EndInit();
         self.tabControl1.ResumeLayout(false);
         self.tabPage1.ResumeLayout(false);
+        self.tabPage2.ResumeLayout(false);
         self.ResumeLayout(false);
     end;

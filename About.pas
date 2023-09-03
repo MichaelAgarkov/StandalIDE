@@ -14,6 +14,8 @@ type
     tabPage1: TabPage;
     richTextBox1: RichTextBox;
     linkLabel1: LinkLabel;
+    tabPage2: TabPage;
+    richTextBox2: RichTextBox;
     pictureBox1: PictureBox;
     {$include About.AboutStandalIDE.inc}
   {$endregion FormDesigner}

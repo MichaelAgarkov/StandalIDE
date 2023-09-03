@@ -1,5 +1,5 @@
 #define MyAppName "StandalIDE"
-#define MyAppVersion "5.1"
+#define MyAppVersion "6.0"
 #define MyAppPublisher "Michael Agarkov"
 #define MyAppURL "https://github.com/MichaelAgarkov"
 #define MyAppExeName "StandalIDE.exe"
@@ -19,12 +19,22 @@ PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=.
 OutputBaseFilename={#MyAppName} Setup
 SetupIconFile=icon.ico
-Compression=lzma/normal
+Compression=lzma2/max
 SolidCompression=yes
+UninstallDisplayIcon={app}\{#MyAppExeName}
 WizardStyle=classic
 DisableWelcomePage=no
 WizardImageFile=Wizard Image.bmp
 WizardSmallImageFile=Wizard Small Image.bmp
+
+[Types]
+Name: "full"; Description: "Full installation"
+Name: "compact"; Description: "Compact installation"
+Name: "custom"; Description: "Custom installation"; Flags: iscustom
+
+[Components]
+Name: "main"; Description: "StandalIDE"; Types: full compact custom; Flags: fixed
+Name: "pdb"; Description: "PDB file"; Types: full
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -33,12 +43,13 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "StandalIDE.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ConsoleControl.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ConsoleControlAPI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "License.rtf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Donate.bmp"; Flags: dontcopy
+Source: "StandalIDE.exe"; DestDir: "{app}"; Flags: ignoreversion; Components: main
+Source: "StandalIDE.pdb"; DestDir: "{app}"; Flags: ignoreversion; Components: pdb
+Source: "ConsoleControl.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: main
+Source: "ConsoleControlAPI.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: main
+Source: "License.rtf"; DestDir: "{app}"; Flags: ignoreversion; Components: main
+Source: "License.txt"; DestDir: "{app}"; Flags: ignoreversion; Components: main
+Source: "GitHub.bmp"; Flags: dontcopy
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
@@ -52,7 +63,7 @@ procedure DonateImageOnClick(Sender: TObject);
 var
   ErrorCode: Integer;
 begin
-  ShellExecAsOriginalUser('open', 'https://www.donationalerts.com/r/MichaelAgarkov', '', '', SW_SHOWNORMAL, ewNoWait, ErrorCode);
+  ShellExecAsOriginalUser('open', 'https://github.com/MichaelAgarkov', '', '', SW_SHOWNORMAL, ewNoWait, ErrorCode);
 end;
 
 <event('InitializeWizard')>
@@ -62,7 +73,7 @@ var
   DonateImage: TBitmapImage;
   BevelTop: Integer;
 begin
-  DonateImageFileName := ExpandConstant('{tmp}\Donate.bmp');
+  DonateImageFileName := ExpandConstant('{tmp}\GitHub.bmp');
   ExtractTemporaryFile(ExtractFileName(DonateImageFileName));
   DonateImage := TBitmapImage.Create(WizardForm);
   DonateImage.AutoSize := True;

@@ -103,6 +103,7 @@ implementation
 
 procedure Form1.settingsToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
+  // StandalIDE stops being always on top so you can see the settings window.
   alwaysOnTopToolStripMenuItem.Checked := false;
   TopMost := false;
   Form(new SettingsForm).show;
@@ -110,12 +111,14 @@ end;
 
 procedure Form1.Form1_FormClosed(sender: Object; e: FormClosedEventArgs);
 begin
+  // Stop all processes running before closing.
   consoleControl1.StopProcess;
   halt;
 end;
 
 procedure Form1.Form1_Load(sender: Object; e: EventArgs);
 begin
+  // Load settings.
   try
     var DefThemeSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings1.cfg', System.Text.Encoding.Default);
     DefThemeSetting := DefThemeSettingFile.ReadLine;
@@ -143,6 +146,7 @@ begin
   except
     WWASSetting := 'False';
   end;
+  // Apply settings.
   if(DefThemeSetting = 'Light') then begin
     darkThemeToolStripMenuItem.Checked := false;
     nightThemeToolStripMenuItem.Checked := false;
@@ -257,6 +261,7 @@ begin
     wordWrapToolStripMenuItem.Checked := true;
     textBox1.WordWrap := true;
   end;
+  // If the program was opened with a text file location in the cmd argument, show it.
   try
     var OpenedTextFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[1], System.Text.Encoding.Default);
     ParseTextEncoding.Text := OpenedTextFile.ReadToEnd;
@@ -268,6 +273,7 @@ end;
 
 procedure Form1.lightThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
+  // The reason I wrote all the theme changes in such a funky way was to make it render less.
   if(lightThemeToolStripMenuItem.Checked = true) then begin
     darkThemeToolStripMenuItem.Checked := false;
     nightThemeToolStripMenuItem.Checked := false;
@@ -344,6 +350,7 @@ end;
 
 procedure Form1.aboutToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
+  // StandalIDE stops being always on top so you can see the about window.
   alwaysOnTopToolStripMenuItem.Checked := false;
   TopMost := false;
   Form(new AboutStandalIDE).show;
@@ -374,12 +381,14 @@ end;
 
 procedure Form1.textBox1_TextChanged(sender: Object; e: EventArgs);
 begin
+  // If text was edited, TextEdited becomes true so if the user closes StandalIDE, it notifies about unsaved changes.
   TextEdited := true;
   toolStripStatusLabel1.Text := 'Ready';
 end;
 
 procedure Form1.Form1_FormClosing(sender: Object; e: FormClosingEventArgs);
 begin
+  // If there are unsaved changes, prevent StandalIDE from closing and notify about them.
   if(TextEdited) then begin
     e.Cancel := true;
     Form(new UCForm).show;
@@ -388,10 +397,7 @@ end;
 
 procedure Form1.alwaysOnTopToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
-  if(alwaysOnTopToolStripMenuItem.Checked = true) then
-    TopMost := true
-  else
-    TopMost := false;
+  TopMost := alwaysOnTopToolStripMenuItem.Checked;
 end;
 
 procedure Form1.nightThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
@@ -531,12 +537,14 @@ end;
 
 procedure Form1.editorSettingsToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
+  // Creates a temporary setting file to let the settings form know to open the "Editor" tab. It gets deleted instantly after.
   WriteLines(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'OpenEditorSettings.cfg', 'True'.Split);
   Form(new SettingsForm).show;
 end;
 
 procedure Form1.timer1_Tick(sender: Object; e: EventArgs);
 begin
+  // This timer is present to fix a bug with the program icon not showing up when switching to fullscreen mode on start.
   timer1.Enabled := false;
   fullscreenModeToolStripMenuItem.Checked := true;
   FormBorderStyle := System.Windows.Forms.FormBorderStyle.None;
@@ -609,6 +617,7 @@ end;
 
 procedure Form1.evilRedThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
 begin
+  // Fun fact: the name for the theme "Evil Red" was inspired from the Winamp Bento colour scheme with the same name.
   if(evilRedThemeToolStripMenuItem.Checked = true) then begin
     lightThemeToolStripMenuItem.Checked := false;
     darkThemeToolStripMenuItem.Checked := false;
@@ -641,6 +650,7 @@ begin
     ConsoleActivated := true;
     consoleControl1.StartProcess('cmd', '');
     consoleControl1.WriteInput('', System.Drawing.Color.White, false);
+    // The timer is present here to let the console initialise before trying to interact with it.
     timer2.Enabled := true;
   except;
   end;
