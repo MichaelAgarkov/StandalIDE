@@ -2,13 +2,14 @@
 
 interface
 
-uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, ConsoleControl, Settings, UnsavedChanges, About;
+uses System, System.ComponentModel, System.Drawing, System.Windows.Forms, ConsoleControl, Settings, UnsavedChanges, About, LoadingScreen;
 
 var
   DefThemeSetting, AOTATSetting, FATSetting, WWASSetting: string;
   ParseTextEncoding := new RichTextBox;
   TextEdited: boolean = false;
   ConsoleActivated: boolean = false;
+  LoadingConsoleScreen := Form(new LoadingScreenForm);
 
 type
   Form1 = class(Form)
@@ -647,6 +648,7 @@ procedure Form1.toolStripSplitButton1_ButtonClick(sender: Object; e: EventArgs);
 begin
   panel1.Visible := not panel1.Visible;
   if(not ConsoleActivated) then try
+    LoadingConsoleScreen.Show;
     ConsoleActivated := true;
     consoleControl1.StartProcess('cmd', '');
     consoleControl1.WriteInput('', System.Drawing.Color.White, false);
@@ -663,6 +665,7 @@ begin
   consoleControl1.Visible := true;
   consoleControl1.WriteOutput('Terminal started.', System.Drawing.Color.Lime);
   consoleControl1.WriteInput('', System.Drawing.Color.White, false);
+  LoadingConsoleScreen.Close;
 end;
 
 end.

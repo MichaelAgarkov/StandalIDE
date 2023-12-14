@@ -6,6 +6,7 @@
     <Item Type="SourceFile" Name="About.pas" Path="About.pas" />
     <Item Type="SourceFile" Name="Settings.pas" Path="Settings.pas" />
     <Item Type="SourceFile" Name="UnsavedChanges.pas" Path="UnsavedChanges.pas" />
+    <Item Type="SourceFile" Name="LoadingScreen.pas" Path="LoadingScreen.pas" />
     <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
     <Item Type="Reference" AssemblyName="System.Windows.Forms" FullAssemblyName="System.Windows.Forms.dll" />
     <Item Type="Reference" AssemblyName="System.Drawing" FullAssemblyName="System.Drawing.dll" />
