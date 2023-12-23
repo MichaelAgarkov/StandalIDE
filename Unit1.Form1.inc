@@ -98,6 +98,7 @@ procedure InitializeComponent;
         self.printToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.P)));
         self.printToolStripMenuItem.Size := new System.Drawing.Size(197, 22);
         self.printToolStripMenuItem.Text := 'Print (Unstable)';
+        self.printToolStripMenuItem.Visible := false;
         self.printToolStripMenuItem.Click += printToolStripMenuItem_Click;
         // 
         // toolStripSeparator1
@@ -432,7 +433,7 @@ procedure InitializeComponent;
         // 
         // timer2
         // 
-        self.timer2.Interval := 500;
+        self.timer2.Interval := 3000;
         self.timer2.Tick += timer2_Tick;
         // 
         // Form1
@@ -446,8 +447,10 @@ procedure InitializeComponent;
         self.MainMenuStrip := self.menuStrip1;
         self.MinimumSize := new System.Drawing.Size(225, 112);
         self.Name := 'Form1';
+        self.ShowInTaskbar := false;
         self.StartPosition := System.Windows.Forms.FormStartPosition.CenterScreen;
         self.Text := 'StandalIDE';
+        self.WindowState := System.Windows.Forms.FormWindowState.Minimized;
         self.FormClosing += Form1_FormClosing;
         self.FormClosed += Form1_FormClosed;
         self.Load += Form1_Load;

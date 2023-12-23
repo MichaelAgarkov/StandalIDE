@@ -8,8 +8,8 @@ var
   DefThemeSetting, AOTATSetting, FATSetting, WWASSetting: string;
   ParseTextEncoding := new RichTextBox;
   TextEdited: boolean = false;
-  ConsoleActivated: boolean = false;
-  LoadingConsoleScreen := Form(new LoadingScreenForm);
+  ConsoleOpenedOnce: boolean = false;
+  Loading := Form(new LoadingScreenForm);
 
 type
   Form1 = class(Form)
@@ -120,6 +120,7 @@ end;
 procedure Form1.Form1_Load(sender: Object; e: EventArgs);
 begin
   // Load settings.
+  Loading.Show;
   try
     var DefThemeSettingFile := new System.IO.StreamReader(Environment.GetCommandLineArgs[0].Replace('StandalIDE.exe', '') + 'settings1.cfg', System.Text.Encoding.Default);
     DefThemeSetting := DefThemeSettingFile.ReadLine;
@@ -270,6 +271,10 @@ begin
     textBox1.Lines := ParseTextEncoding.Lines;
   except
   end;
+  // Console initialisation
+  consoleControl1.StartProcess('cmd', '');
+  // The timer is present here to let the console initialise before trying to interact with it.
+  timer2.Enabled := true;
 end;
 
 procedure Form1.lightThemeToolStripMenuItem_Click(sender: Object; e: EventArgs);
@@ -647,14 +652,10 @@ end;
 procedure Form1.toolStripSplitButton1_ButtonClick(sender: Object; e: EventArgs);
 begin
   panel1.Visible := not panel1.Visible;
-  if(not ConsoleActivated) then try
-    LoadingConsoleScreen.Show;
-    ConsoleActivated := true;
-    consoleControl1.StartProcess('cmd', '');
+  if(ConsoleOpenedOnce = false) then begin
+    consoleControl1.WriteOutput('Terminal started.', System.Drawing.Color.Lime);
     consoleControl1.WriteInput('', System.Drawing.Color.White, false);
-    // The timer is present here to let the console initialise before trying to interact with it.
-    timer2.Enabled := true;
-  except;
+    ConsoleOpenedOnce := true;
   end;
 end;
 
@@ -663,9 +664,11 @@ begin
   timer2.Enabled := false;
   consoleControl1.ClearOutput;
   consoleControl1.Visible := true;
-  consoleControl1.WriteOutput('Terminal started.', System.Drawing.Color.Lime);
   consoleControl1.WriteInput('', System.Drawing.Color.White, false);
-  LoadingConsoleScreen.Close;
+  // Finish initialisation
+  Loading.Close;
+  ShowInTaskbar := true;
+  WindowState := System.Windows.Forms.FormWindowState.Normal;
 end;
 
 end.
