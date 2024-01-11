@@ -7,7 +7,7 @@ StandalIDE stands for Standalone IDE, because I am planning to make it to be not
 
 It's size is also 1 MB, so it's very compact, just for you to save space on your small laptop ;)
 
-It's distributed with the BSD 4-Clause License, so you have the freedom to release your own versions with your own modifications, for you to feel the full freedom while using it! (Just follow the EULA and don't break it)
+It's distributed with the Eclipse Public License 2.0, so you have the freedom to release your own versions with your own modifications, for you to feel the full freedom while using it! (Just follow the EULA and don't break it)
 
 For the source code, I recommend using PascalABC.NET version 3.4.2 build 2050, because it's the version I use, and the version it is compiled in. You can get it here: https://tinyurl.com/PascalABCNET
 
