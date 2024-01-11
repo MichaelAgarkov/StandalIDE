@@ -24,7 +24,7 @@ procedure InitializeComponent;
         self.label1.Name := 'label1';
         self.label1.Size := new System.Drawing.Size(426, 81);
         self.label1.TabIndex := 1;
-        self.label1.Text := 'StandalIDE'#13#10'2023.12';
+        self.label1.Text := 'StandalIDE'#13#10'2024.1';
         self.label1.UseWaitCursor := true;
         // 
         // LoadingScreenForm

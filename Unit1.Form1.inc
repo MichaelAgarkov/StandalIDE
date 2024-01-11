@@ -123,6 +123,8 @@ procedure InitializeComponent;
         // 
         self.settingsToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('settingsToolStripMenuItem.Image')));
         self.settingsToolStripMenuItem.Name := 'settingsToolStripMenuItem';
+        self.settingsToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Shift) 
+                    or System.Windows.Forms.Keys.S)));
         self.settingsToolStripMenuItem.Size := new System.Drawing.Size(197, 22);
         self.settingsToolStripMenuItem.Text := 'Settings';
         self.settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
@@ -158,6 +160,7 @@ procedure InitializeComponent;
         // 
         self.closeToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('closeToolStripMenuItem.Image')));
         self.closeToolStripMenuItem.Name := 'closeToolStripMenuItem';
+        self.closeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys((System.Windows.Forms.Keys.Alt or System.Windows.Forms.Keys.F4)));
         self.closeToolStripMenuItem.Size := new System.Drawing.Size(197, 22);
         self.closeToolStripMenuItem.Text := 'Close';
         self.closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
@@ -175,7 +178,9 @@ procedure InitializeComponent;
         // 
         self.lightThemeToolStripMenuItem.CheckOnClick := true;
         self.lightThemeToolStripMenuItem.Name := 'lightThemeToolStripMenuItem';
-        self.lightThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.lightThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D1)));
+        self.lightThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.lightThemeToolStripMenuItem.Text := 'Light theme';
         self.lightThemeToolStripMenuItem.Click += lightThemeToolStripMenuItem_Click;
         // 
@@ -187,7 +192,9 @@ procedure InitializeComponent;
         self.darkThemeToolStripMenuItem.CheckState := System.Windows.Forms.CheckState.Checked;
         self.darkThemeToolStripMenuItem.ForeColor := System.Drawing.Color.White;
         self.darkThemeToolStripMenuItem.Name := 'darkThemeToolStripMenuItem';
-        self.darkThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.darkThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D2)));
+        self.darkThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.darkThemeToolStripMenuItem.Text := 'Dark theme';
         self.darkThemeToolStripMenuItem.Click += darkThemeToolStripMenuItem_Click;
         // 
@@ -197,7 +204,9 @@ procedure InitializeComponent;
         self.nightThemeToolStripMenuItem.CheckOnClick := true;
         self.nightThemeToolStripMenuItem.ForeColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(255)))), (System.Int32((System.Byte(128)))), (System.Int32((System.Byte(0)))));
         self.nightThemeToolStripMenuItem.Name := 'nightThemeToolStripMenuItem';
-        self.nightThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.nightThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D3)));
+        self.nightThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.nightThemeToolStripMenuItem.Text := 'Night theme';
         self.nightThemeToolStripMenuItem.Click += nightThemeToolStripMenuItem_Click;
         // 
@@ -207,7 +216,9 @@ procedure InitializeComponent;
         self.programmingThemeToolStripMenuItem.CheckOnClick := true;
         self.programmingThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Lime;
         self.programmingThemeToolStripMenuItem.Name := 'programmingThemeToolStripMenuItem';
-        self.programmingThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.programmingThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D4)));
+        self.programmingThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.programmingThemeToolStripMenuItem.Text := 'Programming theme';
         self.programmingThemeToolStripMenuItem.Click += programmingThemeToolStripMenuItem_Click;
         // 
@@ -217,7 +228,9 @@ procedure InitializeComponent;
         self.blueThemeToolStripMenuItem.CheckOnClick := true;
         self.blueThemeToolStripMenuItem.ForeColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(5)))), (System.Int32((System.Byte(5)))), (System.Int32((System.Byte(255)))));
         self.blueThemeToolStripMenuItem.Name := 'blueThemeToolStripMenuItem';
-        self.blueThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.blueThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D5)));
+        self.blueThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.blueThemeToolStripMenuItem.Text := 'Blue theme';
         self.blueThemeToolStripMenuItem.Click += blueThemeToolStripMenuItem_Click;
         // 
@@ -227,7 +240,9 @@ procedure InitializeComponent;
         self.endermanThemeToolStripMenuItem.CheckOnClick := true;
         self.endermanThemeToolStripMenuItem.ForeColor := System.Drawing.Color.FromArgb((System.Int32((System.Byte(195)))), (System.Int32((System.Byte(0)))), (System.Int32((System.Byte(195)))));
         self.endermanThemeToolStripMenuItem.Name := 'endermanThemeToolStripMenuItem';
-        self.endermanThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.endermanThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D6)));
+        self.endermanThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.endermanThemeToolStripMenuItem.Text := 'Enderman theme';
         self.endermanThemeToolStripMenuItem.Click += endermanThemeToolStripMenuItem_Click;
         // 
@@ -237,7 +252,9 @@ procedure InitializeComponent;
         self.vaporwaveThemeToolStripMenuItem.CheckOnClick := true;
         self.vaporwaveThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Lime;
         self.vaporwaveThemeToolStripMenuItem.Name := 'vaporwaveThemeToolStripMenuItem';
-        self.vaporwaveThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.vaporwaveThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D7)));
+        self.vaporwaveThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.vaporwaveThemeToolStripMenuItem.Text := 'Ralsei theme';
         self.vaporwaveThemeToolStripMenuItem.Click += vaporwaveThemeToolStripMenuItem_Click;
         // 
@@ -247,7 +264,9 @@ procedure InitializeComponent;
         self.waterThemeToolStripMenuItem.CheckOnClick := true;
         self.waterThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Cyan;
         self.waterThemeToolStripMenuItem.Name := 'waterThemeToolStripMenuItem';
-        self.waterThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.waterThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D8)));
+        self.waterThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.waterThemeToolStripMenuItem.Text := 'Vaporeon theme';
         self.waterThemeToolStripMenuItem.Click += waterThemeToolStripMenuItem_Click;
         // 
@@ -257,7 +276,9 @@ procedure InitializeComponent;
         self.evilRedThemeToolStripMenuItem.CheckOnClick := true;
         self.evilRedThemeToolStripMenuItem.ForeColor := System.Drawing.Color.Red;
         self.evilRedThemeToolStripMenuItem.Name := 'evilRedThemeToolStripMenuItem';
-        self.evilRedThemeToolStripMenuItem.Size := new System.Drawing.Size(185, 22);
+        self.evilRedThemeToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys(((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.D9)));
+        self.evilRedThemeToolStripMenuItem.Size := new System.Drawing.Size(248, 22);
         self.evilRedThemeToolStripMenuItem.Text := 'Evil Red theme';
         self.evilRedThemeToolStripMenuItem.Click += evilRedThemeToolStripMenuItem_Click;
         // 
@@ -304,14 +325,14 @@ procedure InitializeComponent;
         // 
         self.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[2](self.fontToolStripMenuItem1, self.editorSettingsToolStripMenuItem));
         self.contextMenuStrip1.Name := 'contextMenuStrip1';
-        self.contextMenuStrip1.Size := new System.Drawing.Size(150, 48);
+        self.contextMenuStrip1.Size := new System.Drawing.Size(245, 70);
         self.contextMenuStrip1.Opening += contextMenuStrip1_Opening;
         // 
         // fontToolStripMenuItem1
         // 
         self.fontToolStripMenuItem1.Image := (System.Drawing.Image(resources.GetObject('fontToolStripMenuItem1.Image')));
         self.fontToolStripMenuItem1.Name := 'fontToolStripMenuItem1';
-        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(149, 22);
+        self.fontToolStripMenuItem1.Size := new System.Drawing.Size(244, 22);
         self.fontToolStripMenuItem1.Text := 'Font';
         self.fontToolStripMenuItem1.Click += fontToolStripMenuItem1_Click;
         // 
@@ -319,13 +340,16 @@ procedure InitializeComponent;
         // 
         self.editorSettingsToolStripMenuItem.Image := (System.Drawing.Image(resources.GetObject('editorSettingsToolStripMenuItem.Image')));
         self.editorSettingsToolStripMenuItem.Name := 'editorSettingsToolStripMenuItem';
-        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(149, 22);
+        self.editorSettingsToolStripMenuItem.ShortcutKeys := (System.Windows.Forms.Keys((((System.Windows.Forms.Keys.Control or System.Windows.Forms.Keys.Alt) 
+                    or System.Windows.Forms.Keys.Shift) 
+                    or System.Windows.Forms.Keys.S)));
+        self.editorSettingsToolStripMenuItem.Size := new System.Drawing.Size(244, 22);
         self.editorSettingsToolStripMenuItem.Text := 'Editor settings';
         self.editorSettingsToolStripMenuItem.Click += editorSettingsToolStripMenuItem_Click;
         // 
         // saveFileDialog1
         // 
-        self.saveFileDialog1.DefaultExt := 'pas';
+        self.saveFileDialog1.DefaultExt := 'cs';
         self.saveFileDialog1.FileName := 'Program';
         self.saveFileDialog1.Filter := resources.GetString('saveFileDialog1.Filter');
         self.saveFileDialog1.Title := 'Save code';

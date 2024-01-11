@@ -57,6 +57,7 @@ procedure InitializeComponent;
         self.richTextBox1.Size := new System.Drawing.Size(226, 176);
         self.richTextBox1.TabIndex := 0;
         self.richTextBox1.Text := resources.GetString('richTextBox1.Text');
+        self.richTextBox1.WordWrap := false;
         // 
         // tabPage2
         // 
@@ -91,7 +92,7 @@ procedure InitializeComponent;
         self.linkLabel1.Size := new System.Drawing.Size(164, 88);
         self.linkLabel1.TabIndex := 2;
         self.linkLabel1.TabStop := true;
-        self.linkLabel1.Text := 'StandalIDE'#13#10'By Michael Agarkov'#13#10'Version 2023.12'#13#10'Revision 1';
+        self.linkLabel1.Text := 'StandalIDE'#13#10'By Michael Agarkov'#13#10'Version 2024.1'#13#10'Revision 1';
         self.linkLabel1.UseCompatibleTextRendering := true;
         self.linkLabel1.LinkClicked += linkLabel1_LinkClicked;
         // 
